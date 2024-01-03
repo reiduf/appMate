@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Istok+Web:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu-item {
+  @apply flex gap-5 items-center mx-6 my-4 p-4 rounded-lg hover:bg-primary hover:text-white transition-all duration-300;
+}
+
+.card {
+  @apply rounded-2xl overflow-hidden
+}
+
+.button-text {
+  @apply font-secondary font-light uppercase tracking-[.35em] hover:shadow-inner
+}

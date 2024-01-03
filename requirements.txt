@@ -1,0 +1,1 @@
+django-tailwind[reload] >= 3.6.0
