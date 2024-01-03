@@ -13,5 +13,5 @@
 }
 
 .button-text {
-  @apply font-secondary font-light uppercase tracking-[.35em] hover:shadow-inner
+  @apply font-secondary font-light uppercase tracking-[.25em] hover:shadow-inner
 }
