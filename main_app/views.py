@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Connection, Job, Todo, Status, Interaction
+from .forms import TodoForm
 
 
 # Create your views here.
@@ -68,5 +69,30 @@ class JobDelete(LoginRequiredMixin, DeleteView):
   success_url = '/jobs'
 
 
+@login_required
+def add_todo(request, job_id):
+  form = TodoForm(request.POST)
+  if form.is_valid():
+    new_todo = form.save(commit=False)
+    # below could be an issue
+    new_todo.job_id = job_id
+    new_todo.save()
+  return redirect('detail', job_id=job_id)
 
 
+@login_required
+def update_todo(request, job_id, todo_id):
+  todo = Todo.objects.get(id = todo_id)
+  if todo.done == False:
+    todo.done = True
+  else:
+    todo.done = False
+  todo.save()
+  return redirect('detail', job_id=job_id)
+
+
+@login_required
+def delete_todo(request, job_id, todo_id):
+  todo = Todo.objects.get(id = todo_id)
+  todo.delete()
+  return redirect('detail', job_id=job_id)
