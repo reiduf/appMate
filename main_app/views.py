@@ -43,11 +43,14 @@ def jobs_detail(request, job_id):
   job = Job.objects.get(id = job_id)
   todos = Todo.objects.filter(job = job_id)
   statuss = Status.objects.filter(job = job_id)
+  todo_form = TodoForm()
   return render(request, 'jobs/detail.html', {
     'job' : job,
     'todos': todos,
-    'statuss' : statuss
+    'statuss' : statuss,
+    'todo_form': todo_form,
   })
+
 
 
 class JobCreate(LoginRequiredMixin, CreateView):
