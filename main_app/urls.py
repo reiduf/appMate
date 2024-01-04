@@ -10,4 +10,7 @@ urlpatterns = [
   path('jobs/create/', views.JobCreate.as_view(), name='jobs_create'),
   path('jobs/<int:pk>/update/', views.JobUpdate.as_view(), name='jobs_update'),
   path('jobs/<int:pk>/delete/', views.JobDelete.as_view(), name='jobs_delete'),
+  path('jobs/<int:job_id>/add_todo/', views.add_todo, name='add_todo'),
+  path('jobs/<int:job_id>/update_todo/<int:todo_id>/', views.update_todo, name='update_todo'),
+  path('jobs/<int:job_id>/delete_todo/<int:todo_id>/', views.delete_todo, name='delete_todo'),
 ]
