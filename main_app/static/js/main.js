@@ -7,6 +7,10 @@ hamburger.addEventListener('click', () => {
   menuEl.classList.toggle('hidden');
 })
 
-searchBar.addEventListener('focus', () => {
+searchBar.addEventListener('focusin', () => {
   search.classList.add('hidden')
+})
+
+searchBar.addEventListener('focusout', () => {
+  search.classList.remove('hidden')
 })
