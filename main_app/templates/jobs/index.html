@@ -1,104 +1,155 @@
 {% extends 'base.html' %} 
 {% block content %}
+<div class="p-7">
 
-<h1 class="text-2xl font-primary font-bold text-primary">Welcome, Pico!</h1>
+  <div class="flex justify-center xl:block">
+    <h2 class="font-primary font-bold text-primary text-3xl">My Job Applications (#)</h2>
+  </div>
+  <!-- status columns container -->
+  <div class="mt-4 flex xl:flex-row flex-col w-full gap-5">
+    <!-- pending container -->
+    <div class="flex-col xl:w-1/4">
+      <div class="flex justify-center items-center gap-4">
+        <div class="w-4 h-4 rounded-full bg-green-300 inline-block"></div>
+        <span>Submitted / Pending (#)</span>
+      </div>
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
+        <!-- for each - pending jobs goes here -->
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        <!-- end of for each -->
+      </div>
+    </div>
 
-<div class="flex flex-col lg:flex-row lg:gap-10 lg:justify-center">
-	<a href="#" class="lg:w-2/3">
-		<div
-			class="card p3 my-3 bg-white min-h-56 text-center shadow-md hover:shadow-lg hover:scale-[1.01] transition-all duration-300 ease-in-out">
-			<h3 class="bg-green-400 p-2 font-semibold">Job Applications (4 total)</h3>
-		</div>
-	</a>
-	<a href="#" class="lg:w-2/3">
-		<div
-			class="card p3 my-3 bg-white min-h-56 text-center shadow-md hover:shadow-lg hover:scale-[1.01] transition-all duration-300 ease-in-out">
-			<h3 class="bg-cyan-300 p-2 font-semibold">Connections (3 total)</h3>
-		</div>
-	</a>
+    <!-- interviewing container -->
+    <div class="flex-col xl:w-1/4">
+      <div class="flex justify-center items-center gap-4">
+        <div class="w-4 h-4 rounded-full bg-green-400 inline-block"></div>
+        <span>Interviewing (#)</span>
+      </div>
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
+        <!-- for each - interviewing jobs goes here -->
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        <!-- end of for each -->
+      </div>
+    </div>
+
+    <!-- offers container -->
+    <div class="flex-col xl:w-1/4">
+      <div class="flex justify-center items-center gap-4">
+        <div class="w-4 h-4 rounded-full bg-green-500 inline-block"></div>
+        <span>Offers Extended (#)</span>
+      </div>
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
+        <!-- for each - offers jobs goes here -->
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        <!-- end of for each -->
+      </div>
+    </div>
+
+    <!-- rejected container -->
+    <div class="flex-col xl:w-1/4">
+      <div class="flex justify-center items-center gap-4">
+        <div class="w-4 h-4 rounded-full bg-black inline-block"></div>
+        <span>Rejected (#)</span>
+      </div>
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
+        <!-- for each - rejected jobs goes here -->
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        </a>
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        </a>
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        </a>
+        <a href="#">
+          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+            Jr. Frontend Software Engineer @ Facebook 
+          </div>
+        </a>
+        <!-- end of for each -->
+      </div>
+    </div>
+    <!-- end of rejected container -->
+    
+  </div>
+
+  <div class="flex justify-center xl:block">
+    <h1 class="font-primary font-bold text-primary text-3xl mt-10 overflow-scroll">Bookmarked Jobs (#)</h1>
+  </div>
+
+  <section class="card my-3 bg-violet-100 min-h-80 h-fit p-6"></section>
+
+  <div class="flex justify-center xl:block">
+    <h1 class="font-primary font-bold text-primary text-3xl mt-10 overflow-scroll">Search My Job Apps</h1>
+  </div>
+  <label class="relative">
+    <svg id="search" class="w-5 absolute bottom-0 left-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+    </svg>   
+    <input id="search-bar" class="w-full my-4 border-0 bg-violet-100 rounded-full px-6 font-secondary" type="text">
+  </label>
 </div>
-
-<!-- Going cold section -->
-<section class="card my-3 bg-violet-100 min-h-80 h-fit p-6">
-	<h1 class="text-2xl font-primary font-bold text-primary">Going Cold</h1>
-
-	<!-- Container for job app and connections containers -->
-	<div class="lg:flex lg:gap-6">
-		<div class="lg:w-1/2">
-			<!-- Cold Job Apps Card template -->
-			<a href="#">
-				<div
-					class="card p3 my-3 bg-green-100 min-h-fit text-center shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-in-out">
-					<div class="bg-white flex items-center justify-start p-2">
-						<svg
-							class="w-7 h-7 p-0.5 border-2 rounded-full border-current shrink-0 mr-2"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
-						</svg>
-						<h4 class="font-semibold mx-auto">Job Title @ Company</h4>
-					</div>
-					<div class="flex-col justify-center items-center p-5">
-						<p class="my-1 font-semibold text-red-500">XX Days Ago</p>
-						<p class="my-1">
-							<span class="font-semibold">Applied: </span>mm/dd/yy
-						</p>
-						<p class="my-1">
-							<span class="font-semibold">Recruiter: </span> Recruiter Full Name
-						</p>
-						<button
-							class="button-text text-xs bg-white px-10 py-1 rounded-full mt-2">
-							Follow Up
-						</button>
-					</div>
-				</div>
-			</a>
-			<!-- End of Job app card template -->
-		</div>
-
-		<!-- Cold Connections container -->
-		<div class="lg:w-1/2">
-			<!-- Cold Connections Card template -->
-			<a href="">
-				<div
-					class="card p3 my-3 bg-cyan-100 min-h-fit text-center shadow-md hover:shadow-lg hover:scale-[1.01] transition-all duration-300 ease-in-out">
-					<div class="bg-white flex items-center justify-start p-2">
-						<svg
-							class="w-7 h-7 p-0.5 border-2 rounded-full border-current shrink-0 mr-2"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
-						</svg>
-						<h4 class="font-semibold mx-auto">Connection Full Name</h4>
-					</div>
-					<div class="flex-col justify-center items-center p-5">
-						<p class="my-1 font-semibold text-red-500">XX Days Ago</p>
-						<p class="my-1">Met at Event Type on mm/dd/yy</p>
-						<p class="my-1">
-							<span class="font-semibold">Last Conversation: </span> mm/dd/yy
-						</p>
-						<button
-							class="button-text text-xs bg-white px-10 py-1 rounded-full mt-2">
-							Follow Up
-						</button>
-					</div>
-				</div>
-			</a>
-			<!-- End of Connection card template -->
-		</div>
-	</div>
-</section>
-
 {% endblock %}

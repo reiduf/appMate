@@ -49,7 +49,7 @@ module.exports = {
               },
               colors: {
                 'primary': '#1D93FF',
-              }
+              },
         },
     },
     plugins: [

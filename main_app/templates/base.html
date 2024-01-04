@@ -15,7 +15,7 @@
 			<nav class="2xl:w-1/6 flex-col items-center relative shadow-md">
 				<!-- Logo -->
 				<div class="flex items-center lg:justify-center justify-between p-6">
-					<a href="#">
+					<a href="{% url 'dash'	%}">
 						<svg
 							class="w-3/4"
 							viewBox="0 0 158 29"
@@ -55,7 +55,7 @@
 
 				<ul id="menu" class="hidden lg:block text-lg font-light">
 					<!-- Dashboard Button -->
-					<a class="menu-item" href="#">
+					<a class="menu-item" href="{% url 'dash'	%}">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -72,7 +72,7 @@
 					>
 
 					<!-- My Job Apps Button -->
-					<a class="menu-item" href="#">
+					<a class="menu-item" href="{% url 'index' %}">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -105,16 +105,17 @@
 						<li>My Connections</li>
 					</a>
 
-					<a href="#">
-						<li
+					<form action="{% url 'logout' %}" method="POST">
+						<button
 							class="flex m-6 uppercase tracking-widest lg:absolute lg:bottom-0 px-4 py-3 rounded-full hover:bg-black hover:text-white transition ease-in-out duration-500">
+							{% csrf_token %}
 							Log Out
-						</li>
-					</a>
+						</button>
+					</form>
 				</ul>
 			</nav>
 
-			<main class="bg-slate-100 h-screen lg:w-5/6 overflow-auto p-7">
+			<main class="bg-slate-100 h-screen lg:w-5/6 overflow-auto">
 				{% block content %}
         {% endblock %}
 			</main>
