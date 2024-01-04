@@ -1,82 +1,153 @@
-{% extends 'base.html' %} 
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <div class="flex flex-col xl:flex-row justify-between">
-  <!-- job details top card -->
-  <section class="xl:h-screen h-fit py-7 2xl:px-12 lg:px-5 px-8 xl:w-3/4">
-    <h1 class="font-primary text-primary font-bold text-3xl">Job Application Details</h1>
+	<!-- gray section container -->
+	<section class="xl:h-screen h-fit py-7 2xl:px-12 lg:px-5 px-8 xl:w-3/4">
+		<h1 class="font-primary text-primary font-bold text-3xl">
+			Job Application Details
+		</h1>
 
-      <div class="card p3 my-3 min-h-fit text-center shadow-md w-full">
-        <div class="bg-green-400 flex items-center justify-start p-2">
-          <h4 class="font-semibold mx-auto">
-            {{ job.position }} @ {{ job.company }}
-          </h4>
+		<section>
+			<!-- job details top card -->
+			<div class="card p3 my-3 min-h-fit text-center shadow-md w-full">
+				<!-- job details green header -->
+				<div class="bg-green-400 flex items-center justify-start p-2">
+					<h4 class="font-semibold mx-auto capitalize">
+						{{ job.position }} @ {{ job.company }}
+					</h4>
+				</div>
+
+				<div
+					class="flex flex-col xl:flex-row justify-center items-center gap-3 p-5 bg-white flex-wrap 2xl:flex-nowrap">
+					<!-- inner cards here -->
+					<div
+						class="card xl:w-1/4 w-full xl:my-3 min-h-fit text-center shadow-md">
+						<div class="bg-gray-300 flex items-center justify-start p-2">
+							<h4 class="font-semibold mx-auto">Application Status</h4>
+						</div>
+						<div class="flex-col justify-center items-center p-5 bg-gray-100">
+							<p
+								class="font-primary xl:text-xl text-4xl font-bold text-primary">
+								{{ job.get_progress_display }}
+							</p>
+						</div>
+					</div>
+					<!-- end card -->
+					<div
+						class="card xl:w-1/4 w-full xl:my-3 min-h-fit text-center shadow-md">
+						<div class="bg-gray-300 flex items-center justify-start p-2">
+							<h4 class="font-semibold mx-auto">Posted Salary</h4>
+						</div>
+						<div class="flex-col justify-center items-center p-5 bg-gray-100">
+							<p
+								class="font-primary xl:text-xl text-4xl font-bold text-green-600">
+								${{ job.salary }}
+							</p>
+						</div>
+					</div>
+					<!-- end card -->
+					<div
+						class="card xl:w-1/4 w-full xl:my-3 min-h-fit text-center shadow-md">
+						<div class="bg-gray-300 flex items-center justify-start p-2">
+							<h4 class="font-semibold mx-auto">Location</h4>
+						</div>
+						<div class="flex-col justify-center items-center p-5 bg-gray-100">
+							<p
+								class="font-primary xl:text-xl text-4xl font-bold text-purple-500 capitalize">
+								{{ job.location }}
+							</p>
+						</div>
+					</div>
+					<!-- end card -->
+					<div class="card xl:w-1/4 w-full xl:my-3 text-center shadow-md">
+						<div class="bg-gray-300 flex items-center justify-start p-2">
+							<h4 class="font-semibold mx-auto">Application Date</h4>
+						</div>
+						<div class="flex-col justify-center items-center p-5 bg-gray-100">
+							<p
+								class="font-primary xl:text-xl text-4xl font-bold text-red-500">
+								{{ job.date }}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- notes, connections, updates, etc. -->
+		<section class="grid grid-cols-2 grid-rows-2 gap-6 mt-6">
+      <!-- status updates -->
+			<div class="card min-h-fit text-center shadow-md row-span-2 bg-white">
+				<div class="bg-green-400 flex items-center justify-start p-2">
+					<h4 class="font-semibold mx-auto">Status Updates</h4>
+				</div>
+				<div class="flex flex-col items-start p-5 bg-white min-h-52">
+          {% for status in job.status_set.all %}
+					<p class="font-primary text-md font-normal">
+              {{ status.date }}: {{ status.description }}
+					</p>
+          {%  endfor %}
+				</div>
+        <form class="pb-5 t-3 bg-white">
+          {% csrf_token %}
+          {{ status_form.as_p }}
+          <input type="submit" value="Add Update" class="cursor-pointer button-text inline-block text-xs hover:text-primary border-2 border-primary bg-primary hover:bg-white text-white px-6 py-0.5 rounded-full transition duration-300">
+        </form>
+			</div>
+
+			<!-- notes -->
+			<div class="card min-h-fit text-center shadow-md bg-white">
+				<div class="bg-green-400 flex items-center justify-start p-2">
+					<h4 class="font-semibold mx-auto">Notes</h4>
+				</div>
+				<div class="flex-col justify-center items-center p-5">
+					<p class="font-primary text-md font-normal">
+						{{ job.notes }}
+					</p>
+				</div>
+			</div>
+
+			<!-- Connection card -->
+			<div class="min-h-fit card text-center shadow-md bg-white">
+				<div class="bg-cyan-300 flex items-center justify-start p-2">
+					<h4 class="font-semibold mx-auto">Associated Connection</h4>
+				</div>
+				<div class="flex flex-col justify-center items-center p-5 bg-white min-h-fit">
+					<p class="font-primary text-md font-normal">
+						[test person here]
+					</p>
+				</div>
+			</div>
+		</section>
+	</section>
+
+	<!-- to-do's -->
+	<aside class="xl:h-screen h-fit bg-white xl:w-1/4 p-7 shadow-lg">
+		<h1 class="font-primary text-primary font-bold text-3xl">To-Do ({{ todos.count }})</h1>
+    <section class="flex flex-col justify-between h-[97%] mt-3">
+      {% if todos.count %}
+        <ul>
+          {% for todo in job.todo_set.all %}
+            <div class="flex items-center gap-3">
+              <input class="border-primary border-2" type="checkbox" value="done" {{ todo.done|yesno:"checked," }} >
+              <li class="text-md leading-10">
+                {{ todo.description }}
+              </li>
+            </div>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <div class="py-24 px-5 border-4 border-dashed border-gray-500 mt-10 text-center rounded-xl text-gray-500">
+          <p class="font-primary font-semibold">Hooray, nothing to do!</p>
         </div>
-
-
-        <div class="flex flex-col xl:flex-row justify-center items-center gap-3 p-5 bg-white flex-wrap 2xl:flex-nowrap">
-          <!-- inner cards here -->
-          <div class="card xl:w-1/4 w-full xl:my-3 min-h-fit text-center shadow-md">
-            <div class="bg-gray-300 flex items-center justify-start p-2">
-              <h4 class="font-semibold mx-auto">
-                Application Status
-              </h4>
-            </div>
-            <div class="flex-col justify-center items-center p-5 bg-gray-100">
-              <p class="font-primary xl:text-xl text-4xl font-bold text-primary">
-                [Pending]
-              </p>
-            </div>
-          </div>
-          <!-- end card -->
-          <div class="card xl:w-1/4 w-full xl:my-3 min-h-fit text-center shadow-md">
-            <div class="bg-gray-300 flex items-center justify-start p-2">
-              <h4 class="font-semibold mx-auto">
-                Posted Salary
-              </h4>
-            </div>
-            <div class="flex-col justify-center items-center p-5 bg-gray-100">
-              <p class="font-primary xl:text-xl text-4xl font-bold text-green-600">
-                ${{ job.salary }}
-              </p>
-            </div>
-          </div>
-          <!-- end card -->
-          <div class="card xl:w-1/4 w-full xl:my-3 min-h-fit text-center shadow-md">
-            <div class="bg-gray-300 flex items-center justify-start p-2">
-              <h4 class="font-semibold mx-auto">
-                Location
-              </h4>
-            </div>
-            <div class="flex-col justify-center items-center p-5 bg-gray-100">
-              <p class="font-primary xl:text-xl text-4xl font-bold text-purple-500">
-                [San Diego, CA]
-              </p>
-            </div>
-          </div>
-          <!-- end card -->
-          <div class="card xl:w-1/4 w-full xl:my-3 text-center shadow-md">
-            <div class="bg-gray-300 flex items-center justify-start p-2">
-              <h4 class="font-semibold mx-auto">
-                Application Date
-              </h4>
-            </div>
-            <div class="flex-col justify-center items-center p-5 bg-gray-100">
-              <p class="font-primary xl:text-xl text-4xl font-bold text-red-500">
-                {{ job.date }}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        
-      </div>
-
-  </section>
-
-  <aside class="xl:h-screen h-fit bg-white xl:w-1/4 p-7 shadow-lg">
-    <h1 class="font-primary text-primary font-bold text-3xl">To-Do (#)</h1>
-  </aside>
+      {%  endif %}
+      <form action="{% url 'add_todo' job.id %}" method="POST">
+        {% csrf_token %}
+        {{ todo_form.as_p }}
+        <input type="submit" value="Add Update">
+      </form>
+    </section>
+	</aside>
 </div>
 
 {% endblock %}
