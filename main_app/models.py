@@ -4,6 +4,14 @@ from datetime import date
 from django.contrib.auth.models import User
 
 # Create your models here.
+
+PROGRESS = (
+    ('P', 'Pending'),
+    ('I', 'Interviewing'),
+    ('O', 'Offer Extended'),
+    ('R', 'Rejected'),
+)
+
 class Connection(models.Model):
     name = models.CharField(max_length=50)
     url = models.CharField(max_length=50)
@@ -26,8 +34,16 @@ class Job(models.Model):
     salary = models.IntegerField()
     position = models.CharField(max_length=50)
     notes = models.TextField(max_length=500)
+    location = models.CharField(max_length=50)
+    bookmarked = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     connections = models.ManyToManyField(Connection)
+
+    progress = models.CharField(
+        max_length=1,
+        choices=PROGRESS,
+        default=PROGRESS[0][0]
+    )
     
     def __str__(self):
         return f'{self.company} ({self.id})'
