@@ -44,11 +44,13 @@ def jobs_detail(request, job_id):
   todos = Todo.objects.filter(job = job_id)
   statuss = Status.objects.filter(job = job_id)
   todo_form = TodoForm()
+  status_form = StatusForm()
   return render(request, 'jobs/detail.html', {
     'job' : job,
     'todos': todos,
     'statuss' : statuss,
     'todo_form': todo_form,
+    'status_form': status_form
   })
 
 
