@@ -1,12 +1,17 @@
 from django.shortcuts import render, redirect
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Connection, Job, Todo, Status, Interaction
+
+
 # Create your views here.
 def home(request):
   return render(request, 'home.html')
+
 
 def signup(request):
   error_message = ''
@@ -23,12 +28,14 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+
 @login_required
 def jobs_index(request):
   jobs = Job.objects.filter(user = request.user)
   return render(request, 'jobs/index.html', {
     'jobs' : jobs
   })
+
 
 @login_required
 def jobs_detail(request, job_id):
@@ -40,3 +47,26 @@ def jobs_detail(request, job_id):
     'todos': todos,
     'statuss' : statuss
   })
+
+
+class JobCreate(LoginRequiredMixin, CreateView):
+  model = Job
+  fields = ['company', 'date', 'salary', 'position', 'notes']
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
+  
+
+class JobUpdate(LoginRequiredMixin, UpdateView):
+  model = Job
+  fields = ['company', 'date', 'salary', 'position', 'notes']
+  
+
+class JobDelete(LoginRequiredMixin, DeleteView):
+  model = Job
+  success_url = '/jobs'
+
+
+
+

@@ -54,7 +54,6 @@ class Status(models.Model):
         return f'{self.description} ({self.id})'
 
 
-
 class Interaction(models.Model):
     description = models.TextField(max_length=200)
     date = models.DateField('Interaction Date')
