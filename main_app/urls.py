@@ -13,4 +13,6 @@ urlpatterns = [
   path('jobs/<int:job_id>/add_todo/', views.add_todo, name='add_todo'),
   path('jobs/<int:job_id>/update_todo/<int:todo_id>/', views.update_todo, name='update_todo'),
   path('jobs/<int:job_id>/delete_todo/<int:todo_id>/', views.delete_todo, name='delete_todo'),
+  path('jobs/<int:job_id>/add_status/', views.add_status, name='add_status'),
+  path('jobs/<int:job_id>/delete_status/<int:status_id>/', views.delete_status, name='delete_status'),
 ]
