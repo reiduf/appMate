@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Connection, Job, Todo, Status, Interaction
-from .forms import TodoForm
+from .forms import TodoForm, StatusForm
 
 
 # Create your views here.
@@ -43,11 +43,14 @@ def jobs_detail(request, job_id):
   job = Job.objects.get(id = job_id)
   todos = Todo.objects.filter(job = job_id)
   statuss = Status.objects.filter(job = job_id)
+  todo_form = TodoForm()
   return render(request, 'jobs/detail.html', {
     'job' : job,
     'todos': todos,
-    'statuss' : statuss
+    'statuss' : statuss,
+    'todo_form': todo_form,
   })
+
 
 
 class JobCreate(LoginRequiredMixin, CreateView):
@@ -95,4 +98,21 @@ def update_todo(request, job_id, todo_id):
 def delete_todo(request, job_id, todo_id):
   todo = Todo.objects.get(id = todo_id)
   todo.delete()
+  return redirect('detail', job_id=job_id)
+
+
+@login_required
+def add_status(request, job_id):
+  form = StatusForm(request.POST)
+  if form.is_valid():
+    new_status = form.save(commit=False)
+    new_status.job_id = job_id
+    new_status.save()
+  return redirect('detail', job_id=job_id)
+
+
+@login_required
+def delete_status(request, job_id, status_id):
+  status = Status.objects.get(id = status_id)
+  status.delete()
   return redirect('detail', job_id=job_id)
