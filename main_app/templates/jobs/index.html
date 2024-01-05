@@ -17,7 +17,7 @@
     <div class="flex-col xl:w-1/4">
       <div class="flex justify-center items-center gap-4">
         <div class="w-4 h-4 rounded-full bg-green-300 inline-block"></div>
-        <span>Submitted / Pending (#)</span>
+        <span>Submitted / Pending ({{ num_p }})</span>
       </div>
       <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
         <!-- for each - pending jobs goes here -->
@@ -39,7 +39,7 @@
     <div class="flex-col xl:w-1/4">
       <div class="flex justify-center items-center gap-4">
         <div class="w-4 h-4 rounded-full bg-green-400 inline-block"></div>
-        <span>Interviewing (#)</span>
+        <span>Interviewing ({{ num_i }})</span>
       </div>
       <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
         <!-- for each - interviewing jobs goes here -->
@@ -62,7 +62,7 @@
     <div class="flex-col xl:w-1/4">
       <div class="flex justify-center items-center gap-4">
         <div class="w-4 h-4 rounded-full bg-green-500 inline-block"></div>
-        <span>Offers Extended (#)</span>
+        <span>Offers Extended ({{ num_o }})</span>
       </div>
       <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
         <!-- for each - offers jobs goes here -->
@@ -84,7 +84,7 @@
     <div class="flex-col xl:w-1/4">
       <div class="flex justify-center items-center gap-4">
         <div class="w-4 h-4 rounded-full bg-black inline-block"></div>
-        <span>Rejected (#)</span>
+        <span>Rejected ({{ num_r }})</span>
       </div>
       <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
         <!-- for each - rejected jobs goes here -->
@@ -106,7 +106,7 @@
   </div>
 
   <div class="flex justify-center xl:block">
-    <h1 class="font-primary font-bold text-primary text-3xl mt-10">Bookmarked Jobs (#)</h1>
+    <h1 class="font-primary font-bold text-primary text-3xl mt-10">Bookmarked Jobs ({{ num_bookmarked }})</h1>
   </div>
 
   <section class="card my-3 bg-violet-100 min-h-80 h-fit p-6 overflow-scroll">

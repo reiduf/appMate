@@ -11,6 +11,7 @@ from .forms import TodoForm, StatusForm, JobForm
 
 # Create your views here.
 def home(request):
+
   return render(request, 'home.html')
 
 
@@ -33,8 +34,18 @@ def signup(request):
 @login_required
 def jobs_index(request):
   jobs = Job.objects.filter(user = request.user)
+  num_p = Job.objects.filter(progress = 'P').count()
+  num_i = Job.objects.filter(progress = 'I').count()
+  num_o = Job.objects.filter(progress = 'O').count()
+  num_r = Job.objects.filter(progress = 'R').count()
+  num_bookmarked = Job.objects.filter(bookmarked = True).count()
   return render(request, 'jobs/index.html', {
-    'jobs' : jobs
+    'jobs' : jobs,
+    'num_p' : num_p,
+    'num_i' : num_i,
+    'num_o' : num_o,
+    'num_r' : num_r,
+    'num_bookmarked' : num_bookmarked
   })
 
 
