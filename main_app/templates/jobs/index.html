@@ -2,9 +2,15 @@
 {% block content %}
 <div class="p-7">
 
-  <div class="flex justify-center xl:block">
-    <h2 class="font-primary font-bold text-primary text-3xl">My Job Applications ({{ jobs.count }})</h2>
+  <div class="flex flex-col md:flex-row gap-3 items-center justify-between">
+    <h1 class="font-primary text-primary font-bold text-3xl">
+      My Job Applications ({{ jobs.count }})
+    </h1>
+    <a href="{% url 'jobs_create' %}" class="button-text bg-primary border-2 border-primary text-white text-sm px-6 py-1 rounded-full hover:text-primary hover:bg-white transition duration-300">
+      Add Job App
+    </a>
   </div>
+
   <!-- status columns container -->
   <div class="mt-4 flex xl:flex-row flex-col w-full gap-5">
     <!-- pending container -->
@@ -13,38 +19,18 @@
         <div class="w-4 h-4 rounded-full bg-green-300 inline-block"></div>
         <span>Submitted / Pending (#)</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
         <!-- for each - pending jobs goes here -->
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
+        {% for job in jobs %}
+          {% if job.progress == 'P'%}
+            <a href="{% url 'detail' job.id %}">
+              <div class="text-sm bg-green-300 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner hover:scale-[1.04] transition duration-300">      
+                {{ job.position }} @ {{ job.company }}
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+
         <!-- end of for each -->
       </div>
     </div>
@@ -55,18 +41,19 @@
         <div class="w-4 h-4 rounded-full bg-green-400 inline-block"></div>
         <span>Interviewing (#)</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
         <!-- for each - interviewing jobs goes here -->
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
+        {% for job in jobs %}
+          {% if job.progress == 'I'%}
+            <a href="{% url 'detail' job.id %}">
+              <div class="text-sm bg-green-400 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner hover:scale-[1.04] transition duration-300">      
+                {{ job.position }} @ {{ job.company }}
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+
+
         <!-- end of for each -->
       </div>
     </div>
@@ -77,13 +64,18 @@
         <div class="w-4 h-4 rounded-full bg-green-500 inline-block"></div>
         <span>Offers Extended (#)</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
         <!-- for each - offers jobs goes here -->
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
+        {% for job in jobs %}
+          {% if job.progress == 'O'%}
+            <a href="{% url 'detail' job.id %}">
+              <div class="text-sm bg-green-500 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner hover:scale-[1.04] transition duration-300">      
+                {{ job.position }} @ {{ job.company }}
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+
         <!-- end of for each -->
       </div>
     </div>
@@ -94,41 +86,18 @@
         <div class="w-4 h-4 rounded-full bg-black inline-block"></div>
         <span>Rejected (#)</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
         <!-- for each - rejected jobs goes here -->
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
+        {% for job in jobs %}
+          {% if job.progress == 'R'%}
+            <a href="{% url 'detail' job.id %}">
+              <div class="text-sm bg-black text-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner hover:scale-[1.04] transition duration-300">      
+                {{ job.position }} @ {{ job.company }}
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+
         <!-- end of for each -->
       </div>
     </div>
@@ -137,10 +106,22 @@
   </div>
 
   <div class="flex justify-center xl:block">
-    <h1 class="font-primary font-bold text-primary text-3xl mt-10 overflow-scroll">Bookmarked Jobs (#)</h1>
+    <h1 class="font-primary font-bold text-primary text-3xl mt-10">Bookmarked Jobs (#)</h1>
   </div>
 
-  <section class="card my-3 bg-violet-100 min-h-80 h-fit p-6"></section>
+  <section class="card my-3 bg-violet-100 min-h-80 h-fit p-6 overflow-scroll">
+    <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-3 gap-y-1">
+      {% for job in jobs %}
+        {% if job.bookmarked %}
+          <a href="{% url 'detail' job.id %}">
+            <div class="bg-primary font-primary text-lg text-white py-1 px-2 mb-1 min-h-10 rounded-md capitalize text-center flex justify-center items-center hover:shadow-inner hover:scale-[1.04] transition duration-300">      
+              {{ job.position }} @ {{ job.company }}
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
 
   <div class="flex justify-center xl:block">
     <h1 class="font-primary font-bold text-primary text-3xl mt-10 overflow-scroll">Search My Job Apps</h1>
