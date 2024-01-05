@@ -54,7 +54,6 @@ def jobs_detail(request, job_id):
   })
 
 
-
 class JobCreate(LoginRequiredMixin, CreateView):
   model = Job
   fields = ['company', 'date', 'salary', 'position', 'notes']
