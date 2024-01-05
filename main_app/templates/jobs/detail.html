@@ -94,7 +94,7 @@
 				<div class="flex flex-col items-start p-5 bg-white min-h-52">
         {% if statuss.count %}
           {% for status in job.status_set.all %}
-          <div class="flex gap-3 items-center my-1 text-left">
+          <div class="flex gap-3 items-center my-1 text-left ">
             <a href="{% url 'delete_status' job.id status.id %}">
               <svg class="w-6 h-6 stroke-red-500"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" >
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
@@ -106,7 +106,7 @@
           </div>
           {%  endfor %}
         {% else %}
-          <div class="flex flex-col items-center text-gray-400 text-center w-full my-auto">
+          <div class="flex flex-col items-center font-primary text-gray-500 text-center w-full my-auto py-24 px-5 border-4 border-dashed border-gray-500  font-semibold rounded-xl">
             No status updates yet.
           </div>
         {% endif %}
@@ -176,7 +176,7 @@
           {% endfor %}
         </ul>
       {% else %}
-        <div class="py-24 px-5 border-4 border-dashed border-gray-500 mt-10 text-center rounded-xl text-gray-500">
+        <div class="py-24 px-5 border-4 border-dashed border-gray-500 text-center rounded-xl text-gray-500">
           <p class="font-primary font-semibold">Hooray, nothing to do!</p>
         </div>
       {%  endif %}
