@@ -114,7 +114,7 @@
         <form class="pb-5 t-3 bg-whiteflex flex flex-col justify-center text-center px-10">
           {% csrf_token %}
           <label class="font-primary font-semibold text-primary text-xl">Add New Status Update:</label>
-          <input type="date" name="date" class="self-center rounded-full border-gray-300 border-2 my-2">
+          <input type="date" name="date" class="rounded-full border-gray-300 border-2 my-2">
           <textarea class="border-2 rounded-xl border-gray-300 block" name="description" cols="30" rows="5" placeholder="Received callback to set-up interview"></textarea>
           <input type="submit" value="Add Update" class="self-center my-4 cursor-pointer button-text text-xs hover:text-primary border-2 border-primary bg-primary hover:bg-white text-white px-6 py-0.5 rounded-full transition duration-300">
         </form>
@@ -147,8 +147,10 @@
 	</section>
 
 	<!-- to-do's -->
-	<aside class="xl:h-screen h-fit bg-white xl:w-1/4 p-7 shadow-lg">
-		<h1 class="font-primary text-primary font-bold text-3xl">To-Do ({{ todos.count }})</h1>
+	<aside class="xl:h-screen h-screen bg-white xl:w-1/4 p-7 shadow-lg">
+    <div class="flex justify-center lg:justify-start">
+      <h1 class="font-primary text-primary font-bold text-3xl">To-Do ({{ todos.count }})</h1>
+    </div>
     <section class="flex flex-col justify-between h-[97%] mt-3">
       {% if todos.count %}
         <ul>
