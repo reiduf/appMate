@@ -8,7 +8,7 @@
         Job Application: {{ job.position }} @ {{ job.company }}
       </h1>
       <div class="flex text-center">
-        <a href="{% url 'jobs_update' job.id %}" class=" mr-3 button-text bg-primary border-2 border-primary text-white text-xs px-6 py-1 rounded-full hover:text-primary hover:bg-white transition duration-300">
+        <a href="{% url 'jobs_delete' job.id %}" class=" mr-3 button-text bg-primary border-2 border-primary text-white text-xs px-6 py-1 rounded-full hover:text-primary hover:bg-white transition duration-300">
           Delete Job
         </a>
         <a href="{% url 'jobs_update' job.id %}" class="button-text bg-primary border-2 border-primary text-white text-xs px-6 py-1 rounded-full hover:text-primary hover:bg-white transition duration-300">
