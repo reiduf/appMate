@@ -62,8 +62,8 @@ class Todo(models.Model):
     
 
 class Status(models.Model):
-    description = models.TextField(max_length=200)
-    date = models.DateField('Status Date')
+    description = models.TextField('Add New Status Update', max_length=200)
+    date = models.DateField('')
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
 
     def __str__(self):

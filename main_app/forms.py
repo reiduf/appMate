@@ -1,4 +1,4 @@
-from django.forms import ModelForm, DateInput
+from django.forms import ModelForm, DateInput, Textarea
 from .models import Todo, Status, Job
 
 
@@ -19,6 +19,14 @@ class StatusForm(ModelForm):
                     'placeholder': 'Select a date',
                     'type': 'date'
                 }),
+            'description': Textarea(
+                attrs={
+                    'placeholder': 'Received callback to set up interview',
+                    'cols': 30,
+                    'rows': 5,
+
+                }
+            )
         }
 
 class JobForm(ModelForm):
