@@ -95,7 +95,6 @@ def update_todo(request, job_id, todo_id):
   todo.save()
   return redirect('detail', job_id=job_id)
 
-
 @login_required
 def delete_todo(request, job_id, todo_id):
   todo = Todo.objects.get(id = todo_id)
