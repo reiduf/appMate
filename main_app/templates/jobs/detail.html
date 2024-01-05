@@ -111,10 +111,17 @@
           </div>
         {% endif %}
 				</div>
-        <form class="pb-5 t-3 bg-whiteflex flex flex-col justify-center text-center px-10">
+
+        <form action="{% url 'add_status' job.id %}" method="POST" class="pb-5 t-3 bg-whiteflex flex flex-col justify-center text-center px-10">
+          {% csrf_token %}
+          {{ status_form.as_p }}
+          <input type="submit" value="Add Update" class="self-center my-4 cursor-pointer button-text text-xs hover:text-primary border-2 border-primary bg-primary hover:bg-white text-white px-6 py-0.5 rounded-full transition duration-300">
+        </form>
+
+        <form action="{% url 'add_status' job.id %}" class="pb-5 t-3 bg-whiteflex flex flex-col justify-center text-center px-10">
           {% csrf_token %}
           <label class="font-primary font-semibold text-primary text-xl">Add New Status Update:</label>
-          <input type="date" name="date" class="rounded-full border-gray-300 border-2 my-2">
+          <input type="date" name="date" format="('%Y-%m-%d')" class="rounded-full border-gray-300 border-2 my-2">
           <textarea class="border-2 rounded-xl border-gray-300 block" name="description" cols="30" rows="5" placeholder="Received callback to set-up interview"></textarea>
           <input type="submit" value="Add Update" class="self-center my-4 cursor-pointer button-text text-xs hover:text-primary border-2 border-primary bg-primary hover:bg-white text-white px-6 py-0.5 rounded-full transition duration-300">
         </form>
@@ -188,6 +195,7 @@
         <textarea class="border-2 rounded-xl border-gray-300 block w-full" name="description" cols="30" rows="8" placeholder="Research React and Vue before interview"></textarea>
         <input type="submit" value="Add To-Do" class="my-4 cursor-pointer button-text inline-block text-xs hover:text-primary border-2 border-primary bg-primary hover:bg-white text-white px-6 py-0.5 rounded-full transition duration-300">
       </form>
+
     </section>
 	</aside>
 </div>
