@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
-from datetime import date
+from datetime import date, datetime, timedelta
+from django.utils import timezone
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -50,6 +51,13 @@ class Job(models.Model):
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={'job_id': self.id})
+    
+    def days_since_update(self):
+        last_update = self.status_set.all().last().date
+        last_update_dt = datetime.combine(last_update, datetime.min.time())
+        difference = datetime.now() - last_update_dt
+        day_diff = difference.days
+        return day_diff
 
 
 class Todo(models.Model):
@@ -68,6 +76,10 @@ class Status(models.Model):
 
     def __str__(self):
         return f'{self.description} ({self.id})'
+    
+    class Meta:
+        ordering = ['date']
+
 
 
 class Interaction(models.Model):
