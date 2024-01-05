@@ -5,7 +5,7 @@
 	<section class="xl:h-screen h-fit py-7 2xl:px-12 lg:px-5 px-8 xl:w-3/4">
 		<div class="flex flex-col md:flex-row gap-3 items-center justify-between">
       <h1 class="font-primary text-primary font-bold text-3xl">
-        Job Application Details
+        Job Application: {{ job.position }} @ {{ job.company }}
       </h1>
       <a href="{% url 'jobs_update' job.id %}" class="button-text bg-primary border-2 border-primary text-white text-sm px-6 py-1 rounded-full hover:text-primary hover:bg-white transition duration-300">
         Edit Job
@@ -18,7 +18,7 @@
 				<!-- job details green header -->
 				<div class="bg-green-400 flex items-center justify-start p-2">
 					<h4 class="font-semibold mx-auto capitalize">
-						{{ job.position }} @ {{ job.company }}
+						Job Application Details
 					</h4>
 				</div>
 
@@ -87,6 +87,7 @@
 					<h4 class="font-semibold mx-auto">Status Updates</h4>
 				</div>
 				<div class="flex flex-col items-start p-5 bg-white min-h-52">
+        {% if status.count %}
           {% for status in job.status_set.all %}
           <div class="flex gap-3 items-center my-1 text-left">
             <a href="{% url 'delete_status' job.id status.id %}">
@@ -99,6 +100,11 @@
             </p>
           </div>
           {%  endfor %}
+        {% else %}
+          <div class="flex flex-col items-center text-gray-400 text-center w-full my-auto">
+            No status updates yet.
+          </div>
+        {% endif %}
 				</div>
         <form class="pb-5 t-3 bg-whiteflex flex flex-col justify-center text-center px-10">
           {% csrf_token %}

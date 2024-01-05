@@ -106,10 +106,22 @@
   </div>
 
   <div class="flex justify-center xl:block">
-    <h1 class="font-primary font-bold text-primary text-3xl mt-10 overflow-scroll">Bookmarked Jobs (#)</h1>
+    <h1 class="font-primary font-bold text-primary text-3xl mt-10">Bookmarked Jobs (#)</h1>
   </div>
 
-  <section class="card my-3 bg-violet-100 min-h-80 h-fit p-6"></section>
+  <section class="card my-3 bg-violet-100 min-h-80 h-fit p-6">
+    <div class="grid grid-cols-3 gap-8">
+      {% for job in jobs %}
+        {% if job.bookmarked %}
+          <a href="{% url 'detail' job.id %}">
+            <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+              {{ job.position }} @ {{ job.company }}
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
 
   <div class="flex justify-center xl:block">
     <h1 class="font-primary font-bold text-primary text-3xl mt-10 overflow-scroll">Search My Job Apps</h1>
