@@ -24,7 +24,7 @@ class StatusForm(ModelForm):
 class JobForm(ModelForm):
     class Meta:
         model = Job
-        fields = ['company', 'date', 'salary', 'position', 'notes', 'location']
+        fields = ['company', 'date', 'salary', 'position', 'notes', 'location', 'progress']
         widgets = {
             'date': DateInput(
                 format=('%Y-%m-%d'),
