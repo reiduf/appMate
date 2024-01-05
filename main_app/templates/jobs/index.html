@@ -19,13 +19,17 @@
         <div class="w-4 h-4 rounded-full bg-green-300 inline-block"></div>
         <span>Submitted / Pending (#)</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
         <!-- for each - pending jobs goes here -->
-        <a href="#">
-          <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
+        {% for job in jobs %}
+          {% if job.progress == 'P'%}
+            <a href="{% url 'detail' job.id %}">
+              <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+                {{ job.position }} @ {{ job.company }}
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
 
         <!-- end of for each -->
       </div>
@@ -37,13 +41,18 @@
         <div class="w-4 h-4 rounded-full bg-green-400 inline-block"></div>
         <span>Interviewing (#)</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
         <!-- for each - interviewing jobs goes here -->
-        <a href="#">
-          <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
+        {% for job in jobs %}
+          {% if job.progress == 'I'%}
+            <a href="{% url 'detail' job.id %}">
+              <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+                {{ job.position }} @ {{ job.company }}
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+
 
         <!-- end of for each -->
       </div>
@@ -55,13 +64,18 @@
         <div class="w-4 h-4 rounded-full bg-green-500 inline-block"></div>
         <span>Offers Extended (#)</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
         <!-- for each - offers jobs goes here -->
-        <a href="#">
-          <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
+        {% for job in jobs %}
+          {% if job.progress == 'O'%}
+            <a href="{% url 'detail' job.id %}">
+              <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+                {{ job.position }} @ {{ job.company }}
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+
         <!-- end of for each -->
       </div>
     </div>
@@ -72,13 +86,17 @@
         <div class="w-4 h-4 rounded-full bg-black inline-block"></div>
         <span>Rejected (#)</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
         <!-- for each - rejected jobs goes here -->
-        <a href="#">
-          <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
+        {% for job in jobs %}
+          {% if job.progress == 'R'%}
+            <a href="{% url 'detail' job.id %}">
+              <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+                {{ job.position }} @ {{ job.company }}
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
 
         <!-- end of for each -->
       </div>
