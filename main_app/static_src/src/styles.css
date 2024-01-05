@@ -21,9 +21,9 @@ label[for="id_description"] {
 }
 
 #id_description {
-  @apply border-2 rounded-xl border-gray-300 block;
+  @apply border-2 rounded-xl border-gray-300 block w-full;
 }
 
 #id_date {
-  @apply rounded-full border-gray-300 border-2 my-2;
+  @apply rounded-full border-gray-300 border-2 my-2 w-full;
 }
