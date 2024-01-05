@@ -1,1 +1,56 @@
-<h1>form</h1>
+{% extends 'base.html' %} 
+{% block content %}
+
+<div class="p-8">
+  <div class="flex justify-center xl:justify-start">
+    <h1 class="font-primary text-primary font-semibold text-3xl">Add New Job</h1>
+  </div>
+
+  <section>
+    <div class="card p3 my-3 min-h-fit text-center shadow-md 2xl:w-3/4 w-full">
+      <!-- job details green header -->
+      <div class="bg-green-400 flex items-center justify-start p-2">
+        <h4 class="font-semibold mx-auto capitalize">
+          New Job Application
+        </h4>
+      </div>
+        
+      <div class="flex flex-col xl:flex-row justify-center items-center gap-3 p-5 bg-white flex-wrap 2xl:flex-nowrap">
+        <!-- inner cards here -->
+        <form action="" method="POST">
+          <!-- Django requires the following for security purposes -->
+          {% csrf_token %}
+          <div class="grid 2xl:grid-cols-2 grid-cols-1 gap-8 mb-5">
+            <div>
+              <label class="block font-secondary">Job Title</label>
+              <input name="position" placeholder="Software Engineer" type="text" class="text-primary text-sm block text-center rounded-full min-w-96 bg-gray-100 border-0">
+            </div>
+            <div>
+              <label class="block font-secondary">Company</label>
+              <input name="company" placeholder="Facebook" type="text" class="text-primary text-sm block text-center rounded-full min-w-96 bg-gray-100 border-0">
+            </div>
+            <div>
+              <label class="block font-secondary">Salary</label>
+              <input name="salary" placeholder="$89,000" type="number" class="text-primary text-sm block text-center rounded-full min-w-96 bg-gray-100 border-0">
+            </div>
+            <div>
+              <label class="block font-secondary">Date Applied</label>
+              <input name="date" type="date" class="text-primary text-sm block text-center rounded-full min-w-96 bg-gray-100 border-0">
+            </div>
+            <div class="w-full xl:col-span-2">
+              <label class="block font-secondary">Notes</label>
+              <textarea name="notes" cols="30" rows="5" placeholder="Found this job thru Barnaby on Facebook. Need to research React and Vue before interview" class="text-primary w-full text-sm block text-center rounded-xl min-w-96 bg-gray-100 border-0"></textarea>
+            </div>
+          </div>
+
+          <input type="submit" value="Submit" class="cursor-pointer button-text bg-primary border-2 border-primary text-white text-sm px-6 py-1 rounded-full hover:text-primary hover:bg-white transition duration-300">
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+</section>
+</div>
+
+{% endblock %}
