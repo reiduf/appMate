@@ -2,9 +2,15 @@
 {% block content %}
 <div class="p-7">
 
-  <div class="flex justify-center xl:block">
-    <h2 class="font-primary font-bold text-primary text-3xl">My Job Applications ({{ jobs.count }})</h2>
+  <div class="flex flex-col md:flex-row gap-3 items-center justify-between">
+    <h1 class="font-primary text-primary font-bold text-3xl">
+      My Job Applications ({{ jobs.count }})
+    </h1>
+    <a href="{% url 'jobs_create' %}" class="button-text bg-primary border-2 border-primary text-white text-sm px-6 py-1 rounded-full hover:text-primary hover:bg-white transition duration-300">
+      Add Job App
+    </a>
   </div>
+
   <!-- status columns container -->
   <div class="mt-4 flex xl:flex-row flex-col w-full gap-5">
     <!-- pending container -->
@@ -16,35 +22,11 @@
       <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
         <!-- for each - pending jobs goes here -->
         <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+          <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
             Jr. Frontend Software Engineer @ Facebook 
           </div>
         </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
+
         <!-- end of for each -->
       </div>
     </div>
@@ -58,15 +40,11 @@
       <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
         <!-- for each - interviewing jobs goes here -->
         <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+          <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
             Jr. Frontend Software Engineer @ Facebook 
           </div>
         </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
+
         <!-- end of for each -->
       </div>
     </div>
@@ -80,7 +58,7 @@
       <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
         <!-- for each - offers jobs goes here -->
         <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+          <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
             Jr. Frontend Software Engineer @ Facebook 
           </div>
         </a>
@@ -97,38 +75,11 @@
       <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll">
         <!-- for each - rejected jobs goes here -->
         <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
+          <div class="text-sm bg-white py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
             Jr. Frontend Software Engineer @ Facebook 
           </div>
         </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
-        </a>
-        <a href="#">
-          <div class="text-sm bg-gray-100 py-1 px-2 mb-1 rounded-md text-center hover:shadow-inner">      
-            Jr. Frontend Software Engineer @ Facebook 
-          </div>
-        </a>
+
         <!-- end of for each -->
       </div>
     </div>
