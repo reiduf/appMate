@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Connection, Job, Todo, Status, Interaction
-from .forms import TodoForm, StatusForm
+from .forms import TodoForm, StatusForm, JobForm
 
 
 # Create your views here.
@@ -56,7 +56,7 @@ def jobs_detail(request, job_id):
 
 class JobCreate(LoginRequiredMixin, CreateView):
   model = Job
-  fields = ['company', 'date', 'salary', 'position', 'notes']
+  form_class = JobForm
 
   def form_valid(self, form):
     form.instance.user = self.request.user
@@ -65,7 +65,7 @@ class JobCreate(LoginRequiredMixin, CreateView):
 
 class JobUpdate(LoginRequiredMixin, UpdateView):
   model = Job
-  fields = ['company', 'date', 'salary', 'position', 'notes']
+  form_class = JobForm
   
 
 class JobDelete(LoginRequiredMixin, DeleteView):
