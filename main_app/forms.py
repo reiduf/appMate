@@ -1,4 +1,4 @@
-from django.forms import ModelForm, DateInput, Textarea
+from django.forms import ModelForm, DateInput, Textarea, TextInput, Select, CheckboxInput
 from .models import Todo, Status, Job
 
 
@@ -15,16 +15,15 @@ class StatusForm(ModelForm):
             'date': DateInput(
                 format=('%Y-%m-%d'),
                 attrs={
-                    'class': 'form-control', 
+                    'class': 'rounded-full border-gray-300 border-2 my-2 w-full',
                     'placeholder': 'Select a date',
                     'type': 'date'
                 }),
             'description': Textarea(
                 attrs={
-                    'placeholder': 'Received callback to set up interview',
+                    'placeholder': 'Add notes about the status update',
                     'cols': 30,
                     'rows': 5,
-
                 }
             )
         }
@@ -32,13 +31,50 @@ class StatusForm(ModelForm):
 class JobForm(ModelForm):
     class Meta:
         model = Job
-        fields = ['company', 'date', 'salary', 'position', 'notes', 'location', 'progress']
+        fields = ['position', 'company', 'salary', 'location', 'date', 'progress', 'notes', 'bookmarked']
         widgets = {
             'date': DateInput(
                 format=('%Y-%m-%d'),
                 attrs={
-                    'class': 'form-control', 
+                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full text-center bg-gray-100 border-0', 
                     'placeholder': 'Select a date',
                     'type': 'date'
                 }),
+            'notes': Textarea(
+                attrs={
+                    'class': 'text-primary w-full text-sm block text-center rounded-xl min-w-96 bg-gray-100 border-0 col-span-2',
+                    'placeholder': 'Add notes about job here',
+                    'cols': 30,
+                    'rows': 5,
+                }),
+            'location': TextInput(
+                attrs={
+                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
+                    'placeholder': 'San Francisco',
+                }),
+            'salary': TextInput(
+                attrs={
+                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
+                    'placeholder': '$89,000',
+                }),
+            'company': TextInput(
+                attrs={
+                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
+                    'placeholder': 'Facebook',
+                }),
+            'position': TextInput(
+                attrs={
+                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
+                    'placeholder': 'Sr. Frontend Engineer',
+                }),
+            'progress': Select(
+                attrs={
+                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
+                 }),
+            'bookmarked': CheckboxInput(
+                attrs={
+                    'class': '',
+                 }),
         }
+
+        
