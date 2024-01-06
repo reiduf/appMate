@@ -73,7 +73,7 @@ class JobForm(ModelForm):
                  }),
             'bookmarked': CheckboxInput(
                 attrs={
-                    'class': 'block mx-auto',
+                    'class': 'block mx-auto border-2 border-primary',
                  }),
         }
 

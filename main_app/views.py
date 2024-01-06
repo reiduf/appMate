@@ -11,8 +11,8 @@ from .forms import TodoForm, StatusForm, JobForm
 
 # Create your views here.
 def home(request):
-
-  return render(request, 'home.html')
+  jobs = Job.objects.filter(user = request.user)
+  return render(request, 'home.html', {'jobs': jobs})
 
 
 def signup(request):

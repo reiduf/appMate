@@ -19,7 +19,7 @@
 
 		<section>
 			<!-- job details top card -->
-			<div class="card p3 my-3 min-h-fit text-center shadow-md w-full">
+			<div class="card my-3 min-h-fit text-center shadow-md w-full">
 				<!-- job details green header -->
 				<div class="bg-green-400 flex items-center justify-start p-2">
 					{% if job.bookmarked %}
@@ -28,8 +28,8 @@
             </svg>
           {% else %}
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-            </svg>              
+              <path stroke-linecap="round" stroke-linejoin="round" d="m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5" />
+            </svg>       
           {% endif %}          
 
           <h4 class="font-semibold mx-auto my-auto capitalize">
@@ -38,10 +38,10 @@
 				</div>
 
 				<div
-					class="flex flex-col xl:flex-row justify-center items-center gap-3 p-5 bg-white flex-wrap 2xl:flex-nowrap">
+					class="grid grid-cols-1 2xl:grid-cols-4 md:grid-cols-2 items-center gap-3 p-5 bg-white ">
 					<!-- inner cards here -->
 					<div
-						class="card xl:w-1/4 w-full xl:my-3 min-h-fit text-center shadow-md">
+						class="card w-full min-h-fit text-center shadow-md">
 						<div class="bg-gray-300 flex items-center justify-start p-2">
 							<h4 class="font-semibold mx-auto">Application Status</h4>
 						</div>
@@ -54,7 +54,7 @@
 					</div>
 					<!-- end card -->
 					<div
-						class="card xl:w-1/4 w-full xl:my-3 min-h-fit text-center shadow-md">
+						class="card w-full min-h-fit text-center shadow-md">
 						<div class="bg-gray-300 flex items-center justify-start p-2">
 							<h4 class="font-semibold mx-auto">Posted Salary</h4>
 						</div>
@@ -67,7 +67,7 @@
 					</div>
 					<!-- end card -->
 					<div
-						class="card xl:w-1/4 w-full xl:my-3 min-h-fit text-center shadow-md">
+						class="card w-full min-h-fit text-center shadow-md">
 						<div class="bg-gray-300 flex items-center justify-start p-2">
 							<h4 class="font-semibold mx-auto">Location</h4>
 						</div>
@@ -79,7 +79,7 @@
 						</div>
 					</div>
 					<!-- end card -->
-					<div class="card xl:w-1/4 w-full xl:my-3 text-center shadow-md">
+					<div class="card w-full text-center shadow-md">
 						<div class="bg-gray-300 flex items-center justify-start p-2">
 							<h4 class="font-semibold mx-auto">Application Date</h4>
 						</div>
