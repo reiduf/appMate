@@ -1,4 +1,4 @@
-from django.forms import ModelForm, DateInput, Textarea, TextInput, Select, CheckboxInput
+from django.forms import ModelForm, DateInput, TextInput, Textarea, Select, CheckboxInput
 from .models import Todo, Status, Job
 
 
@@ -42,7 +42,7 @@ class JobForm(ModelForm):
                 }),
             'notes': Textarea(
                 attrs={
-                    'class': 'text-primary w-full text-sm block text-center rounded-xl min-w-96 bg-gray-100 border-0 col-span-2',
+                    'class': 'text-primary w-full text-sm block text-center rounded-xl min-w-96 bg-gray-100 border-0',
                     'placeholder': 'Add notes about job here',
                     'cols': 30,
                     'rows': 5,
@@ -73,7 +73,7 @@ class JobForm(ModelForm):
                  }),
             'bookmarked': CheckboxInput(
                 attrs={
-                    'class': '',
+                    'class': 'block mx-auto',
                  }),
         }
 

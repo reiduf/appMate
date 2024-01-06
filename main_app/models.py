@@ -36,7 +36,7 @@ class Job(models.Model):
     position = models.CharField(max_length=50)
     notes = models.TextField(max_length=500)
     location = models.CharField(max_length=50)
-    bookmarked = models.BooleanField(default=False)
+    bookmarked = models.BooleanField('Add Bookmark', default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     connections = models.ManyToManyField(Connection)
 
