@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Connection, Job, Todo, Status, Interaction
-from .forms import TodoForm, StatusForm, JobForm
+from .forms import TodoForm, StatusForm, JobForm, InteractionForm
 
 
 # Create your views here.
@@ -141,14 +141,17 @@ def connections_index(request):
 def connections_detail(request, connection_id):
   connection = Connection.objects.get(id = connection_id)
   interactions = Interaction.objects.filter(connection = connection_id)
+  interaction_form = InteractionForm()
   return render(request, 'connections/detail.html', {
     'connection' : connection,
-    'interactions' : interactions
+    'interactions' : interactions,
+    'interaction_form' : interaction_form
   })
 
 
 class ConnectionCreate(LoginRequiredMixin, CreateView):
   model = Connection
+  fields = ['name', 'url', 'location', 'email', 'phone', 'company']
 
   def form_valid(self, form):
     form.instance.user = self.request.user
@@ -157,6 +160,7 @@ class ConnectionCreate(LoginRequiredMixin, CreateView):
 
 class ConnectionUpdate(LoginRequiredMixin, UpdateView):
   model = Connection
+  fields = ['name', 'url', 'location', 'email', 'phone', 'company']
   
 
 class ConnectionDelete(LoginRequiredMixin, DeleteView):
