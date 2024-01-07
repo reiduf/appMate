@@ -127,3 +127,38 @@ def delete_status(request, job_id, status_id):
   status = Status.objects.get(id = status_id)
   status.delete()
   return redirect('detail', job_id=job_id)
+
+
+@login_required
+def connections_index(request):
+  connections = Connection.objects.filter(user = request.user)
+  return render(request, 'connections/index.html', {
+    'connections' : connections
+  })
+
+
+@login_required
+def connections_detail(request, connection_id):
+  connection = Connection.objects.get(id = connection_id)
+  interactions = Interaction.objects.filter(connection = connection_id)
+  return render(request, 'connections/detail.html', {
+    'connection' : connection,
+    'interactions' : interactions
+  })
+
+
+class ConnectionCreate(LoginRequiredMixin, CreateView):
+  model = Connection
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
+  
+
+class ConnectionUpdate(LoginRequiredMixin, UpdateView):
+  model = Connection
+  
+
+class ConnectionDelete(LoginRequiredMixin, DeleteView):
+  model = Connection
+  success_url = '/connections'
