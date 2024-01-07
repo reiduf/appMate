@@ -166,3 +166,20 @@ class ConnectionUpdate(LoginRequiredMixin, UpdateView):
 class ConnectionDelete(LoginRequiredMixin, DeleteView):
   model = Connection
   success_url = '/connections'
+
+
+@login_required
+def add_interaction(request, connection_id):
+  form = InteractionForm(request.POST)
+  if form.is_valid():
+    new_interaction = form.save(commit=False)
+    new_interaction.connection_id = connection_id
+    new_interaction.save()
+  return redirect('connections_detail', connection_id=connection_id)
+
+
+@login_required
+def delete_interaction(request, connection_id, interaction_id):
+  interaction = Interaction.objects.get(id = interaction_id)
+  interaction.delete()
+  return redirect('detail', connection_id=connection_id)
