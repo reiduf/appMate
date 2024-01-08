@@ -39,14 +39,23 @@ def jobs_index(request):
   num_o = Job.objects.filter(progress = 'O').count()
   num_r = Job.objects.filter(progress = 'R').count()
   num_bookmarked = Job.objects.filter(bookmarked = True).count()
+
+  results = None
+  if request.GET.get('search_query'):
+    query = request.GET.get('search_query')
+    results = Job.objects.filter(company=query)
+
   return render(request, 'jobs/index.html', {
     'jobs' : jobs,
     'num_p' : num_p,
     'num_i' : num_i,
     'num_o' : num_o,
     'num_r' : num_r,
-    'num_bookmarked' : num_bookmarked
+    'num_bookmarked' : num_bookmarked,
+    'results': results,
   })
+
+
 
 
 @login_required
