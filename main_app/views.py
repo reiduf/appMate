@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Connection, Job, Todo, Status, Interaction
-from .forms import TodoForm, StatusForm, JobForm
+from .forms import TodoForm, StatusForm, JobForm, InteractionForm
 
 
 # Create your views here.
@@ -127,3 +127,59 @@ def delete_status(request, job_id, status_id):
   status = Status.objects.get(id = status_id)
   status.delete()
   return redirect('detail', job_id=job_id)
+
+
+@login_required
+def connections_index(request):
+  connections = Connection.objects.filter(user = request.user)
+  return render(request, 'connections/index.html', {
+    'connections' : connections
+  })
+
+
+@login_required
+def connections_detail(request, connection_id):
+  connection = Connection.objects.get(id = connection_id)
+  interactions = Interaction.objects.filter(connection = connection_id)
+  interaction_form = InteractionForm()
+  return render(request, 'connections/detail.html', {
+    'connection' : connection,
+    'interactions' : interactions,
+    'interaction_form' : interaction_form
+  })
+
+
+class ConnectionCreate(LoginRequiredMixin, CreateView):
+  model = Connection
+  fields = ['name', 'url', 'location', 'email', 'phone', 'company']
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
+  
+
+class ConnectionUpdate(LoginRequiredMixin, UpdateView):
+  model = Connection
+  fields = ['name', 'url', 'location', 'email', 'phone', 'company']
+  
+
+class ConnectionDelete(LoginRequiredMixin, DeleteView):
+  model = Connection
+  success_url = '/connections'
+
+
+@login_required
+def add_interaction(request, connection_id):
+  form = InteractionForm(request.POST)
+  if form.is_valid():
+    new_interaction = form.save(commit=False)
+    new_interaction.connection_id = connection_id
+    new_interaction.save()
+  return redirect('connections_detail', connection_id=connection_id)
+
+
+@login_required
+def delete_interaction(request, connection_id, interaction_id):
+  interaction = Interaction.objects.get(id = interaction_id)
+  interaction.delete()
+  return redirect('detail', connection_id=connection_id)
