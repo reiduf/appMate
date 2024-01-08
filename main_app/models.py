@@ -59,8 +59,8 @@ class Job(models.Model):
         day_diff = difference.days
         return day_diff
     
-    def todos_for_job(self):
-        todos = self.todo_set.all()
+    def pending_todos(self):
+        todos = self.todo_set.filter(done=False)
         return todos
 
 

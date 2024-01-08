@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="p-7">
-  <h1 class="text-2xl font-primary font-bold text-primary capitalize">Welcome, {{ user }}!</h1>
+  <h1 class="text-3xl font-primary font-bold text-primary capitalize mb-7">Welcome, {{ user }}!</h1>
 
   
   <!-- Going cold section -->
@@ -95,24 +95,28 @@
 </div>
 </section>
 
-  <div class="flex flex-col lg:flex-row lg:gap-10 lg:justify-center">
-     <div
-        class="card p3 my-3 bg-white min-h-56 text-center">
-        <h3 class="bg-green-400 p-2 font-semibold">Job Applications ({{ jobs.count }} total)</h3>
-        {% for job in jobs %}
-          {% if  job.todos_for_job %}
-            <h1>{{ job.position }} @ {{ job.company }}</h1>
-            <ul>
-            {% for todo in job.todos_for_job %}
-              {% if not todo.done %}
-                <li>{{ todo.description }}</li>
-              {% endif %}
-            {% endfor %}
+<section class="card my-3 bg-violet-100 p-6 ">
+  <h1 class="text-2xl font-primary font-bold text-primary">Pending To-Do's</h1>
+  <div class="grid 2xl:grid-cols-5 grid-cols-1 gap-1 2xl:overflow-x-auto px-3">
+    {% for job in jobs %}
+      {% if job.pending_todos %}
+        <a href="{% url 'detail' job.id %}">
+          <div class="card my-3 bg-white min-h-48 2xl:w-64 w-full max-h-fit hover:scale-105 transition duration-300 text-center">
+            <h3 class="bg-green-400 p-2 capitalize font-semibold mb-3">{{ job.position }} @ {{ job.company }}</h3>
+            <ul class="text-left px-4">
+              {% for todo in job.pending_todos %}
+                <div class="flex items-center gap-3">
+                  <div class="h-2 w-2 rounded-full bg-green-400"></div>
+                  <li class="capitalize my-1">{{ todo.description }}</li>
+                </div>
+              {% endfor %}
             </ul>
-          {%  endif %}
-        {% endfor %}
-     </div>
+          </div>
+        </a>
+      {%  endif %}
+    {% endfor %}
   </div>
+</section>
 
 </div>
 
