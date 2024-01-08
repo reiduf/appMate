@@ -19,7 +19,7 @@
         <div class="w-4 h-4 rounded-full bg-green-300 inline-block"></div>
         <span>Submitted / Pending ({{ num_p }})</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-auto capitalize">
         <!-- for each - pending jobs goes here -->
         {% for job in jobs %}
           {% if job.progress == 'P'%}
