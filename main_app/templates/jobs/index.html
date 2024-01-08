@@ -165,14 +165,20 @@
     <button type="submit" class="button-text block xl:inline-block mx-auto shrink-0 bg-primary border-2 border-primary text-white text-sm xl:ml-3 px-6 py-2 rounded-full hover:text-primary hover:bg-white transition duration-300">Search</button>
   </form>
 
-  <div>
+  <div class="flex gap-4">
     {% for result in results %}
-    <a href="{% url 'detail' result.id %}">
-      <div class="bg-primary font-primary text-lg text-white py-1 px-2 mb-1 md:min-h-20 2xl:min-h-10 rounded-md capitalize text-center flex justify-center items-center hover:shadow-inner hover:scale-[1.04] transition duration-300">      
-        {{ result.position }} @ {{ result.company }}
+    <a class="hover:scale-105 transition duration-300" href="{% url 'detail' result.id %}">
+      <div class="flex flex-col w-96">
+        <div
+          class="card p3 my-3 bg-white min-h-36 text-center">
+          <h3 class="bg-green-400 p-2 font-semibold capitalize">{{ result.position }} @ {{ result.company }}</h3>
+          <p class="capitalize mt-4"><span class="font-bold">Salary:</span> ${{ result.salary }}</p>
+          <p class="capitalize"><span class="font-bold">Location:</span> {{ result.location }}</p>
+        </div>
       </div>
     </a>
-    {% endfor %}
+    {% endfor %} 
   </div>
+
 </div>
 {% endblock %}

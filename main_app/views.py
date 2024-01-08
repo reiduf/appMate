@@ -12,7 +12,11 @@ from .forms import TodoForm, StatusForm, JobForm, InteractionForm
 # Create your views here.
 def home(request):
   jobs = Job.objects.filter(user = request.user)
-  return render(request, 'home.html', {'jobs': jobs})
+  todos = Todo.objects.all()
+  return render(request, 'home.html', {
+    'jobs': jobs, 
+    'todos': todos,
+    })
 
 
 def signup(request):

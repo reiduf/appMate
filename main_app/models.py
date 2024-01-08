@@ -58,6 +58,10 @@ class Job(models.Model):
         difference = datetime.now() - last_update_dt
         day_diff = difference.days
         return day_diff
+    
+    def pending_todos(self):
+        todos = self.todo_set.filter(done=False)
+        return todos
 
 
 class Todo(models.Model):
