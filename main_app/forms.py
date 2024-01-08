@@ -61,7 +61,7 @@ class JobForm(ModelForm):
                 }),
             'company': TextInput(
                 attrs={
-                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
+                    'class': 'lowercase text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
                     'placeholder': 'Facebook',
                 }),
             'position': TextInput(
