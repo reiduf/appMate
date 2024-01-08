@@ -15,4 +15,11 @@ urlpatterns = [
   path('jobs/<int:job_id>/delete_todo/<int:todo_id>/', views.delete_todo, name='delete_todo'),
   path('jobs/<int:job_id>/add_status/', views.add_status, name='add_status'),
   path('jobs/<int:job_id>/delete_status/<int:status_id>/', views.delete_status, name='delete_status'),
+  path('connections/', views.connections_index, name='connections_index'),
+  path('connections/<int:connection_id>', views.connections_detail, name='connections_detail'),
+  path('connections/create/', views.ConnectionCreate.as_view(), name='connections_create'),
+  path('connections/<int:pk>/update/', views.ConnectionUpdate.as_view(), name='connections_update'),
+  path('connections/<int:pk>/delete/', views.ConnectionDelete.as_view(), name='connections_delete'),
+  path('connections/<int:connection_id>/add_interaction/', views.add_interaction, name='add_interaction'),
+  path('connections/<int:connection_id>/delete_interaction/<int:interaction_id>/', views.delete_interaction, name='delete_interaction'),
 ]

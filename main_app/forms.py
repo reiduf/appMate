@@ -1,5 +1,7 @@
 from django.forms import ModelForm, DateInput, TextInput, Textarea, Select, CheckboxInput
-from .models import Todo, Status, Job
+from .models import Todo, Status, Job, Interaction
+
+
 
 
 class TodoForm(ModelForm):
@@ -77,4 +79,24 @@ class JobForm(ModelForm):
                  }),
         }
 
-        
+class InteractionForm(ModelForm):
+    class Meta:
+        model = Interaction
+        fields = ['description', 'date']
+        widgets = {
+            'date': DateInput(
+                format=('%Y-%m-%d'),
+                attrs={
+                    'class': 'form-control', 
+                    'placeholder': 'Select a date',
+                    'type': 'date'
+                }),
+            'description': Textarea(
+                attrs={
+                    'placeholder': 'Got coffee',
+                    'cols': 30,
+                    'rows': 5,
+                }
+            )
+        }
+
