@@ -51,9 +51,10 @@ def jobs_index(request):
     'num_i' : num_i,
     'num_o' : num_o,
     'num_r' : num_r,
-    'num_bookmarked' : num_bookmarked,
-    'results' : results
+    'num_bookmarked' : num_bookmarked
   })
+
+
 
 
 @login_required
