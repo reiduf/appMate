@@ -155,10 +155,10 @@ def assoc_connection(request, job_id):
   Job.objects.get(id=job_id).connections.add(connection_id)
   return redirect('detail', job_id=job_id)
 
-# @login_required
-# def unassoc_connection(request, job_id, connection_id):
-#   Job.objects.get(id=job_id).connections.remove(connection_id)
-#   return redirect('detail', job_id=job_id)
+@login_required
+def unassoc_connection(request, job_id, connection_id):
+  Job.objects.get(id=job_id).connections.remove(connection_id)
+  return redirect('detail', job_id=job_id)
 
 
 
