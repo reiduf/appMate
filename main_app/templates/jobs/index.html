@@ -172,7 +172,7 @@
         <div
           class="card my-3 bg-white min-h-36 text-center">
           <h3 class="bg-green-400 p-2 font-semibold capitalize">{{ result.position }} @ {{ result.company }}</h3>
-          <p class="capitalize mt-4"><span class="font-bold">Salary:</span> ${{ result.salary }}</p>
+          <p class="capitalize mt-4"><span class="font-bold">Salary:</span> $<span class="salary">{{ result.salary }}</span></p>
           <p class="capitalize"><span class="font-bold">Location:</span> {{ result.location }}</p>
         </div>
       </div>
