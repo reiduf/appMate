@@ -19,7 +19,7 @@
         <div class="w-4 h-4 rounded-full bg-slate-300 inline-block"></div>
         <span>Submitted / Pending ({{ num_p }})</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-y-auto capitalize">
         <!-- for each - pending jobs goes here -->
         {% for job in jobs %}
           {% if job.progress == 'P'%}
@@ -48,7 +48,7 @@
         <div class="w-4 h-4 rounded-full bg-yellow-200 inline-block"></div>
         <span>Interviewing ({{ num_i }})</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-y-auto capitalize">
         <!-- for each - interviewing jobs goes here -->
         {% for job in jobs %}
           {% if job.progress == 'I'%}
@@ -78,7 +78,7 @@
         <div class="w-4 h-4 rounded-full bg-green-400 inline-block"></div>
         <span>Offers Extended ({{ num_o }})</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-y-auto capitalize">
         <!-- for each - offers jobs goes here -->
         {% for job in jobs %}
           {% if job.progress == 'O'%}
@@ -107,7 +107,7 @@
         <div class="w-4 h-4 rounded-full bg-red-400 inline-block"></div>
         <span>Rejected ({{ num_r }})</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-y-auto capitalize">
         <!-- for each - rejected jobs goes here -->
         {% for job in jobs %}
           {% if job.progress == 'R' %}
@@ -138,7 +138,7 @@
   </div>
 
   <section class="card my-3 bg-violet-100 p-6 ">
-    <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-3 gap-y-1 h-40 overflow-scroll">
+    <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-3 gap-y-1 h-40 overflow-y-auto">
       {% for job in jobs|dictsort:"company" %}
         {% if job.bookmarked %}
           <a href="{% url 'detail' job.id %}">
@@ -165,12 +165,12 @@
     <button type="submit" class="button-text block xl:inline-block mx-auto shrink-0 bg-primary border-2 border-primary text-white text-sm xl:ml-3 px-6 py-2 rounded-full hover:text-primary hover:bg-white transition duration-300">Search</button>
   </form>
 
-  <div class="flex gap-4">
+  <div class="flex flex-col lg:flex-row gap-4">
     {% for result in results %}
     <a class="hover:scale-105 transition duration-300" href="{% url 'detail' result.id %}">
-      <div class="flex flex-col w-96">
+      <div class="flex flex-col lg:w-96">
         <div
-          class="card p3 my-3 bg-white min-h-36 text-center">
+          class="card my-3 bg-white min-h-36 text-center">
           <h3 class="bg-green-400 p-2 font-semibold capitalize">{{ result.position }} @ {{ result.company }}</h3>
           <p class="capitalize mt-4"><span class="font-bold">Salary:</span> ${{ result.salary }}</p>
           <p class="capitalize"><span class="font-bold">Location:</span> {{ result.location }}</p>
