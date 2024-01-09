@@ -88,29 +88,30 @@
             </div>
             <div class="flex flex-col items-start p-5 bg-white min-h-52">
                 {% if interactions.count %}
-                {% for interaction in connection.interaction_set.all %}
-                <div class="flex gap-3 items-center my-1 text-left ">
-                  <a href="{% url 'delete_interaction' connection.id interaction.id %}">
-                    <svg class="w-6 h-6 stroke-red-500"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" >
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
-                  </a>
-                  <p class="font-primary text-md font-normal text-pretty">
-                      {{ interaction.date }}: {{ interaction.description }}
-                  </p>
-                </div>
-                {%  endfor %}
-              {% else %}
-                <div class="flex flex-col items-center font-primary text-gray-500 text-center w-full my-auto py-24 px-5 border-4 border-dashed border-gray-500  font-semibold rounded-xl">
-                  No interactions yet.
-                </div>
-              {% endif %}
+                    {% for interaction in connection.interaction_set.all %}
+                        <div class="flex gap-3 items-center my-1 text-left ">
+                            <a href="{% url 'delete_interaction' connection.id interaction.id %}">
+                                <svg class="w-6 h-6 stroke-red-500"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" >
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                </svg>
+                            </a>
+                            <p class="font-primary text-md font-normal text-pretty">
+                                {{ interaction.date }}: {{ interaction.description }}
+                            </p>
+                        </div>
+                    {%  endfor %}
+                {% else %}
+                    <div class="flex flex-col items-center font-primary text-gray-500 text-center w-full my-auto py-24 px-5 border-4 border-dashed border-gray-500  font-semibold rounded-xl">
+                        No interactions yet.
+                    </div>
+                {% endif %}
             </div>
+
             <form action="{% url 'add_interaction' connection.id %}" method="POST" class="pb-5 t-3 bg-whiteflex flex flex-col justify-center text-center px-10">
                 {% csrf_token %}
                 {{ interaction_form.as_p }}
                 <input type="submit" value="Add Interaction" class="self-center my-4 cursor-pointer button-text text-xs hover:text-primary border-2 border-primary bg-primary hover:bg-white text-white px-6 py-0.5 rounded-full transition duration-300">
-              </form>
+            </form>
         </div>
 
         <!-- Contact Info -->

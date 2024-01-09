@@ -12,10 +12,12 @@ from .forms import TodoForm, StatusForm, JobForm, InteractionForm, ConnectionFor
 # Create your views here.
 def home(request):
   jobs = Job.objects.filter(user = request.user)
+  connections = Connection.objects.filter(user = request.user)
   todos = Todo.objects.all()
   return render(request, 'home.html', {
     'jobs': jobs, 
     'todos': todos,
+    'connections': connections,
     })
 
 
@@ -217,4 +219,4 @@ def add_interaction(request, connection_id):
 def delete_interaction(request, connection_id, interaction_id):
   interaction = Interaction.objects.get(id = interaction_id)
   interaction.delete()
-  return redirect('detail', connection_id=connection_id)
+  return redirect('connections_detail', connection_id=connection_id)
