@@ -65,12 +65,14 @@ def jobs_index(request):
 @login_required
 def jobs_detail(request, job_id):
   job = Job.objects.get(id = job_id)
+  connections = Connection.objects.filter(user = request.user)
   todos = Todo.objects.filter(job = job_id)
   statuss = Status.objects.filter(job = job_id)
   todo_form = TodoForm()
   status_form = StatusForm()
   return render(request, 'jobs/detail.html', {
     'job' : job,
+    'connections' : connections,
     'todos': todos,
     'statuss' : statuss,
     'todo_form': todo_form,

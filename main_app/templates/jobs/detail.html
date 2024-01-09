@@ -162,7 +162,15 @@
               No connection for this job.
             </div>
           {% endif %}
-				</div>
+			</div>
+				<form class="items-center flex flex-col justify-center" action="#" method="POST">
+					<select class="w-1/3 rounded-full inline-block text-center" name="#">
+						{% for connection in connections %}
+							<option value="{{connection.name}}">{{connection.name}}</option>
+						{% endfor %}
+					</select>
+					<input type="submit" value="Add Connection" class="block self-center my-4 cursor-pointer button-text text-xs hover:text-primary border-2 border-primary bg-primary hover:bg-white text-white px-6 py-0.5 rounded-full transition duration-300">
+				</form>
 			</div>
 		</section>
 	</section>
