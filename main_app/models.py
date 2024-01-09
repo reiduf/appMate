@@ -87,7 +87,7 @@ class Status(models.Model):
 
 
 class Interaction(models.Model):
-    description = models.TextField(max_length=200)
+    description = models.TextField('Add Interaction',max_length=200)
     date = models.DateField('')
     connection = models.ForeignKey(Connection, on_delete=models.CASCADE)
 

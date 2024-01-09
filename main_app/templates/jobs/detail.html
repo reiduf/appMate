@@ -146,9 +146,19 @@
 					<h4 class="font-semibold mx-auto">Associated Connection</h4>
 				</div>
 				<div class="flex flex-col justify-center items-center p-5 bg-white min-h-fit">
-					<p class="font-primary text-md font-normal">
-						[test person here]
-					</p>
+          {% if job.connections.count %}
+            {% for connection in job.connections.all %}
+              <a href="{% url 'connections_detail' connection.id %}">
+                <div class="font-primary text-md font-normal bg-cyan-400 capitalize px-10 py-2 rounded-md hover:scale-105 transition duration-300">
+                    {{ connection.name }}
+                </div>
+              </a>
+            {% endfor %}
+          {% else %}
+            <div class="font-primary text-md font-normal">
+              No connection for this job.
+            </div>
+          {% endif %}
 				</div>
 			</div>
 		</section>
