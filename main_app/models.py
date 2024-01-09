@@ -15,11 +15,11 @@ PROGRESS = (
 
 class Connection(models.Model):
     name = models.CharField(max_length=50)
-    url = models.CharField(max_length=50)
-    location = models.CharField(max_length=50)
+    url = models.CharField('URL', max_length=50)
+    location = models.CharField('Place/Event Met',max_length=50)
     email = models.CharField(max_length=50)
     phone = models.CharField(max_length=50)
-    company = models.CharField(max_length=50)
+    company = models.CharField('Employer',max_length=50)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
