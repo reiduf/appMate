@@ -138,6 +138,13 @@
                 <h4 class="font-semibold mx-auto">Associated Job Apps</h4>
             </div>
             <div class="flex flex-col justify-center items-center p-5 bg-white min-h-fit">
+                {% if assoc_jobs.count %}
+                    {% for job in assoc_jobs %}
+                        <a href="{% url 'detail' job.id %}">
+                            <p class="capitalize bg-cyan-400 rounded-md my-2 px-5 py-1">{{ job.position }} @ {{ job.company }}</p>
+                        </a>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </section>
