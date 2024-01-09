@@ -69,6 +69,7 @@ def jobs_index(request):
 def jobs_detail(request, job_id):
   job = Job.objects.get(id = job_id)
   connections = Connection.objects.filter(user = request.user)
+  assoced_connections = Job.objects.get(id=job_id).connections
   todos = Todo.objects.filter(job = job_id)
   statuss = Status.objects.filter(job = job_id)
   todo_form = TodoForm()
@@ -79,7 +80,8 @@ def jobs_detail(request, job_id):
     'todos': todos,
     'statuss' : statuss,
     'todo_form': todo_form,
-    'status_form': status_form
+    'status_form': status_form,
+    'assoced_connections' : assoced_connections
   })
 
 
@@ -148,14 +150,15 @@ def delete_status(request, job_id, status_id):
 
 
 @login_required
-def assoc_connection(request, job_id, connection_id):
+def assoc_connection(request, job_id):
+  connection_id = request.POST['connection']
   Job.objects.get(id=job_id).connections.add(connection_id)
   return redirect('detail', job_id=job_id)
 
-
-def unassoc_connection(request, job_id, connection_id):
-  Job.objects.get(id=job_id).connections.remove(connection_id)
-  return redirect('detail', job_id=job_id)
+# @login_required
+# def unassoc_connection(request, job_id, connection_id):
+#   Job.objects.get(id=job_id).connections.remove(connection_id)
+#   return redirect('detail', job_id=job_id)
 
 
 

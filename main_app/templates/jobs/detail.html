@@ -163,10 +163,11 @@
             </div>
           {% endif %}
 			</div>
-				<form class="py-3 mt-4 items-center flex flex-col justify-center" action="#" method="POST">
-					<select class="w-1/3 rounded-full inline-block text-center" name="#">
+				<form class="py-3 mt-4 items-center flex flex-col justify-center" action="{% url 'assoc_connection' job.id %}" method="POST">
+					{% csrf_token %}
+					<select class="w-1/3 rounded-full inline-block text-center" name="connection">
 						{% for connection in connections %}
-							<option value="{{connection.name}}">{{connection.name}}</option>
+							<option value="{{connection.id}}">{{connection.name}}</option>
 						{% endfor %}
 					</select>
 					<input type="submit" value="Add Connection" class="block self-center my-4 cursor-pointer button-text text-xs hover:text-primary border-2 border-primary bg-primary hover:bg-white text-white px-6 py-0.5 rounded-full transition duration-300">
