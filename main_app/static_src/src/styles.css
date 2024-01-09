@@ -16,7 +16,7 @@
   @apply font-secondary font-light uppercase tracking-[.25em] hover:shadow-inner;
 }
 
-label[for="id_description"], label[for="id_username"], label[for="id_password1"] {
+label[for="id_description"], label[for="id_username"], label[for="id_password1"], label[for="id_password2"] {
   @apply font-primary font-semibold text-primary text-xl;
 }
 
@@ -25,11 +25,22 @@ label[for="id_description"], label[for="id_username"], label[for="id_password1"]
   @apply border-2 rounded-xl border-gray-300 block w-full;
 }
 
-.helptext {
+.helptext, #signup-form li {
+  @apply block text-xs;
+}
+
+#signup-form li:first-child, .helptext {
+  @apply mt-1;
+}
+
+label[for="id_username"], label[for="id_password1"], label[for="id_password2"] {
   @apply block;
 }
 
-label[for="id_username"], label[for="id_password1"] {
-  @apply block;
+label[for="id_password1"], label[for="id_password2"] {
+  @apply mt-4
 }
 
+#id_username, #id_password1, #id_password2 { 
+  @apply w-full h-9
+}
