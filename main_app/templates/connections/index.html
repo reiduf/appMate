@@ -11,9 +11,10 @@
         Add Connection
       </a>
     </div>
+    <hr class="my-3">
 
     <!-- Connections container -->
-    <div class="grid xl:grid-cols-3 grid-cols-1 gap-7 mt-3">
+    <div class="grid xl:grid-cols-3 grid-cols-1 mt-6 gap-7">
       <!-- Start forEach / Cards go here -->
       {% for connection in connections|dictsort:"name" %}
         <a href="{% url 'connections_detail' connection.id %}">
