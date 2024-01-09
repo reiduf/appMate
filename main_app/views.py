@@ -195,5 +195,5 @@ def add_interaction(request, connection_id):
 def delete_interaction(request, connection_id, interaction_id):
   interaction = Interaction.objects.get(id = interaction_id)
   interaction.delete()
-  return redirect('detail', connection_id=connection_id)
+  return redirect('connections_detail', connection_id=connection_id)
 
