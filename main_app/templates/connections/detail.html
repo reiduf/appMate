@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!-- gray section container -->
+<section class="xl:h-screen text-center md:text-left h-fit py-7 2xl:px-12 lg:px-5 px-8 xl:w-full">
+    <div class="flex flex-col 2xl:flex-row gap-3 items-center justify-between">
+        <h1 class="font-primary text-primary font-bold text-3xl capitalize text-pretty">
+            Job Application:
+        </h1>
+        <div class="flex text-center">
+            <a href="{% url 'connections_delete' connection.id %}"
+                class=" mr-3 button-text bg-primary border-2 border-primary text-white text-xs px-6 py-1 rounded-full hover:text-primary hover:bg-white transition duration-300">
+                Delete Connection
+            </a>
+            <a href="{% url 'connections_update' connection.id %}"
+                class="button-text bg-primary border-2 border-primary text-white text-xs px-6 py-1 rounded-full hover:text-primary hover:bg-white transition duration-300">
+                Edit Connection
+            </a>
+        </div>
+    </div>
+
+    <section>
+        <!-- job details top card -->
+        <div class="card my-3 min-h-fit text-center shadow-md w-full">
+            <!-- job details green header -->
+            <div class="bg-green-400 flex items-center justify-start p-2">
+                <h4 class="font-semibold mx-auto my-auto capitalize">
+                    {{connection.name}}
+                </h4>
+            </div>
+
+            <div class="grid grid-cols-1 2xl:grid-cols-4 md:grid-cols-2 items-center gap-3 p-5 bg-white ">
+                <!-- inner cards here -->
+                <div class="card w-full min-h-fit text-center shadow-md">
+                    <div class="bg-gray-300 flex items-center justify-start p-2">
+                        <h4 class="font-semibold mx-auto">Company</h4>
+                    </div>
+                    <div class="flex-col justify-center items-center p-5 bg-gray-100">
+                        <p class="font-primary xl:text-xl text-4xl font-bold text-primary">
+                           {{connection.company}}
+                        </p>
+                    </div>
+                </div>
+                <!-- end card -->
+                <div class="card w-full min-h-fit text-center shadow-md">
+                    <div class="bg-gray-300 flex items-center justify-start p-2">
+                        <h4 class="font-semibold mx-auto">Location Met</h4>
+                    </div>
+                    <div class="flex-col justify-center items-center p-5 bg-gray-100">
+                        <p class="font-primary xl:text-xl text-4xl font-bold text-green-600">
+                             {{connection.location}}
+                        </p>
+                    </div>
+                </div>
+                <!-- end card -->
+                <div class="card w-full min-h-fit text-center shadow-md">
+                    <div class="bg-gray-300 flex items-center justify-start p-2">
+                        <h4 class="font-semibold mx-auto">Last Interaction</h4>
+                    </div>
+                    <div class="flex-col justify-center items-center p-5 bg-gray-100">
+                        {% if interactions.count %}
+                            {% for interaction in connection.interaction_set.all %}
+                                {% if forloop.last %}
+                                    <p class="font-primary xl:text-xl text-4xl font-bold text-purple-500 capitalize">
+                                        {{interaction.date}}
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <p class="font-primary xl:text-xl text-4xl font-bold text-purple-500 capitalize">
+                                None
+                            </p>
+                        {% endif %} 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- notes, connections, updates, etc. -->
+    <section class="grid 2xl:grid-cols-2 2xl:grid-rows-2 grid-cols-1 gap-6 mt-6">
+        <!-- status updates -->
+        <div class="card min-h-fit text-center shadow-md row-span-2 bg-white">
+            <div class="bg-green-400 flex items-center justify-start p-2">
+                <h4 class="font-semibold mx-auto">Status Updates</h4>
+            </div>
+            <div class="flex flex-col items-start p-5 bg-white min-h-52">
+            </div>
+        </div>
+
+        <!-- notes -->
+        <div class="card min-h-fit text-center shadow-md bg-white">
+            <div class="bg-green-400 flex items-center justify-start p-2">
+                <h4 class="font-semibold mx-auto">Notes</h4>
+            </div>
+            <div class="flex-col justify-center items-center p-5">
+                <p class="font-primary text-md font-normal">
+                    test
+                </p>
+            </div>
+        </div>
+
+        <!-- Connection card -->
+        <div class="min-h-fit card text-center shadow-md bg-white">
+            <div class="bg-cyan-300 flex items-center justify-start p-2">
+                <h4 class="font-semibold mx-auto">Associated Connection</h4>
+            </div>
+            <div class="flex flex-col justify-center items-center p-5 bg-white min-h-fit">
+                <p class="font-primary text-md font-normal">
+                    [test person here]
+                </p>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+
+
+{% endblock %}
