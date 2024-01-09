@@ -36,7 +36,7 @@
 			</svg>
 		</nav>
 
-		<main class="lg:mx-20 md:mt-20 mt-10 flex flex-col relative">
+		<main class="lg:mx-20 md:mt-20 mt-10 flex flex-col">
 			<div
 				class="bg-slate-50 p-10 inline-block xl:w-1/2 w-full rounded-lg shadow-lg">
 				<h1 class="font-primary text-primary text-3xl md:text-4xl mb-2">
@@ -65,22 +65,24 @@
 
 			<p class="red-text">{{ error_message }}</p>
 
-	
-		<form
-			id="signup-form"
-			class="hidden w-full p-5 bg-slate-100 my-5 xl:w-1/2 rounded-xl shadow-lg"
-			method="POST"
-			action="{% url 'signup' %}">
-			{% csrf_token %}
-			<h3 class="font-primary text-primary text-2xl font-bold">
-				Create an account
-			</h3>
-			{{ form.as_p }}
-			<input
-				type="submit"
-				class="bg-primary button-text mt-4 text-white py-1 px-5 rounded-full text-sm"
-				value="Sign Up" />
-		</form>
+      <div id="signup-form" class="bg-black-transparent hidden w-screen h-screen absolute top-0 left-0">
+        <div class="flex justify-center items-center h-full px-4">
+          <form
+            class="w-full p-5 bg-slate-100 my-5 xl:w-1/4 rounded-xl shadow-2xl"
+            method="POST"
+            action="{% url 'signup' %}">
+            {% csrf_token %}
+            <h3 class="font-primary text-primary text-2xl font-bold">
+              Create an account
+            </h3>
+            {{ form.as_p }}
+            <input
+              type="submit"
+              class="bg-primary button-text mt-4 text-white py-1 px-5 rounded-full text-sm"
+              value="Sign Up" />
+          </form>
+        </div>
+      </div>
 		
 
 			<div class="flex justify-center lg:justify-end mt-16">

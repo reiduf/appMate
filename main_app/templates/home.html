@@ -44,10 +44,6 @@
           </p>
           {% endif %}
           {% endfor %}
-          <button
-          class="button-text text-xs bg-white px-10 py-1 rounded-full mt-2">
-          Follow Up
-        </button>
       </div>
     </div>
   </a>
@@ -58,7 +54,7 @@
 </div>
 
 <!-- Cold Connections container -->
-<div class="lg:w-1/2 h-96 overflow-scroll px-4 py-3">
+<div class="lg:w-1/2 h-96 overflow-y-auto px-4 py-3">
   <!-- Cold Connections Card template -->
   <a href="">
     <div class="card my-3 bg-cyan-100 min-h-fit text-center hover:scale-[1.01] transition-all duration-300 ease-in-out">
@@ -78,15 +74,10 @@
       <h4 class="font-semibold mx-auto">Connection Full Name</h4>
     </div>
     <div class="flex-col justify-center items-center p-5">
-      <p class="my-1 font-semibold text-red-500">XX Days Ago</p>
-      <p class="my-1">Met at Event Type on mm/dd/yy</p>
+      <p class="my-1 font-semibold">Last Ineraction <span class="text-primary">XX</span> Days Ago</p>
       <p class="my-1">
-        <span class="font-semibold">Last Conversation: </span> mm/dd/yy
+        MM/DD/YYYY: Description of Event
       </p>
-      <button
-      class="button-text text-xs bg-white px-10 py-1 rounded-full mt-2">
-      Follow Up
-    </button>
   </div>
 </div>
 </a>
