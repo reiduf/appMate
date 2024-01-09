@@ -16,7 +16,7 @@
   @apply font-secondary font-light uppercase tracking-[.25em] hover:shadow-inner;
 }
 
-label[for="id_description"] {
+label[for="id_description"], label[for="id_username"], label[for="id_password1"] {
   @apply font-primary font-semibold text-primary text-xl;
 }
 
@@ -24,3 +24,12 @@ label[for="id_description"] {
 #id_description {
   @apply border-2 rounded-xl border-gray-300 block w-full;
 }
+
+.helptext {
+  @apply block;
+}
+
+label[for="id_username"], label[for="id_password1"] {
+  @apply block;
+}
+
