@@ -24,7 +24,7 @@
         <!-- job details top card -->
         <div class="card my-3 min-h-fit text-center shadow-md w-full">
             <!-- job details green header -->
-            <div class="bg-green-400 flex items-center justify-start p-2">
+            <div class="bg-cyan-400 flex items-center justify-start p-2">
                 <h4 class="font-semibold mx-auto my-auto capitalize">
                     {{connection.name}}
                 </h4>
@@ -37,7 +37,7 @@
                         <h4 class="font-semibold mx-auto">Company</h4>
                     </div>
                     <div class="flex-col justify-center items-center p-5 bg-gray-100">
-                        <p class="font-primary xl:text-xl text-4xl font-bold text-primary">
+                        <p class="font-primary xl:text-xl text-4xl font-bold text-cyan-500">
                            {{connection.company}}
                         </p>
                     </div>
@@ -48,7 +48,7 @@
                         <h4 class="font-semibold mx-auto">Location Met</h4>
                     </div>
                     <div class="flex-col justify-center items-center p-5 bg-gray-100">
-                        <p class="font-primary xl:text-xl text-4xl font-bold text-green-600">
+                        <p class="font-primary xl:text-xl text-4xl font-bold text-cyan-500">
                              {{connection.location}}
                         </p>
                     </div>
@@ -62,13 +62,13 @@
                         {% if interactions.count %}
                             {% for interaction in connection.interaction_set.all %}
                                 {% if forloop.last %}
-                                    <p class="font-primary xl:text-xl text-4xl font-bold text-purple-500 capitalize">
+                                    <p class="font-primary xl:text-xl text-4xl font-bold text-cyan-500 capitalize">
                                         {{interaction.date}}
                                     </p>
                                 {% endif %}
                             {% endfor %}
                         {% else %}
-                            <p class="font-primary xl:text-xl text-4xl font-bold text-purple-500 capitalize">
+                            <p class="font-primary xl:text-xl text-4xl font-bold text-cyan-500 capitalize">
                                 None
                             </p>
                         {% endif %} 
@@ -82,7 +82,7 @@
     <section class="grid 2xl:grid-cols-2 2xl:grid-rows-2 grid-cols-1 gap-6 mt-6">
         <!-- status updates -->
         <div class="card min-h-fit text-center shadow-md row-span-2 bg-white">
-            <div class="bg-green-400 flex items-center justify-start p-2">
+            <div class="bg-cyan-400 flex items-center justify-start p-2">
                 <h4 class="font-semibold mx-auto">All Interactions</h4>
             </div>
             <div class="flex flex-col items-start p-5 bg-white min-h-52">
@@ -114,7 +114,7 @@
 
         <!-- Contact Info -->
         <div class="card min-h-fit text-center shadow-md bg-white">
-            <div class="bg-green-400 flex items-center justify-start p-2">
+            <div class="bg-cyan-400 flex items-center justify-start p-2">
                 <h4 class="font-semibold mx-auto">Contact Info</h4>
             </div>
             <div class="flex-col justify-center items-center p-5">
