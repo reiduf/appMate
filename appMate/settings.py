@@ -143,3 +143,7 @@ INTERNAL_IPS = ["127.0.0.1"]
 
 LOGIN_REDIRECT_URL = '/dash/'
 LOGOUT_REDIRECT_URL = '/'
+
+
+import django_on_heroku
+django_on_heroku.settings(locals())
