@@ -88,7 +88,7 @@ class Status(models.Model):
 
 class Interaction(models.Model):
     description = models.TextField(max_length=200)
-    date = models.DateField('Interaction Date')
+    date = models.DateField('')
     connection = models.ForeignKey(Connection, on_delete=models.CASCADE)
 
     def __str__(self):

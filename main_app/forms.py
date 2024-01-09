@@ -87,7 +87,7 @@ class InteractionForm(ModelForm):
             'date': DateInput(
                 format=('%Y-%m-%d'),
                 attrs={
-                    'class': 'form-control', 
+                    'class': 'form-control rounded-full border-gray-300 border-2 my-2 w-full', 
                     'placeholder': 'Select a date',
                     'type': 'date'
                 }),
