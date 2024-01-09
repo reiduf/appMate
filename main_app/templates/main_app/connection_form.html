@@ -1,0 +1,44 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<div class="p-8">
+  {% if object %}
+    <div class="flex justify-center">
+      <h1 class="font-primary text-primary font-semibold capitalize text-3xl">Edit: {{ object.name }} </h1>
+    </div>
+  {% else %}
+    <div class="flex justify-center">
+      <h1 class="font-primary text-primary font-semibold text-3xl">Add New Connection</h1>
+    </div>
+  {% endif %}
+
+  <section class="flex justify-center">
+    <div class="card my-3 min-h-fit text-center shadow-md 2xl:w-1/2 w-full">
+      <!-- green header -->
+      <div class="bg-cyan-400 flex items-center justify-start p-2">
+        <h4 class="font-semibold mx-auto capitalize">
+          {% if object %}
+            {{ object.name }} @ {{ object.company }}
+          {% else %}
+            New Connection
+          {% endif %}
+        </h4>
+      </div>
+        
+      <div class="bg-white">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div class="grid grid-cols-1 gap-3 p-5 text-center">
+            {{ form.as_div }}
+          </div>
+          <input type="submit" value="Submit" class="cursor-pointer button-text bg-primary border-2 border-primary text-white text-sm px-8 py-1 rounded-full my-6 hover:text-primary hover:bg-white transition duration-300">
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</section>
+</div>
+
+{% endblock %}
