@@ -12,7 +12,7 @@
     
     <!-- Container for job app and connections containers -->
     <div class="lg:flex h-fit rounded-2xl">
-      <div class="lg:w-1/2 h-[27.5rem] overflow-scroll px-4">
+      <div class="lg:w-1/2 h-[27.5rem] overflow-y-auto px-4">
         
         {% for job in jobs %}
           {% if job.days_since_update > 21 %}
