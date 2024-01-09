@@ -1,5 +1,5 @@
 from django.forms import ModelForm, DateInput, TextInput, Textarea, Select, CheckboxInput
-from .models import Todo, Status, Job, Interaction
+from .models import Todo, Status, Job, Interaction, Connection
 
 
 
@@ -98,5 +98,39 @@ class InteractionForm(ModelForm):
                     'rows': 5,
                 }
             )
+        }
+
+
+class ConnectionForm(ModelForm):
+    class Meta:
+        model = Connection
+        fields = ['name', 'company', 'location', 'url', 'email', 'phone']
+        widgets = {
+            'name': TextInput(
+                attrs={
+                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
+                }),
+            'company': TextInput(
+                attrs={
+                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
+                }),
+            'location': TextInput(
+                attrs={
+                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
+                    'placeholder': 'Where/how did you meet this person?',
+                }),
+            'url': TextInput(
+                attrs={
+                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
+                    'placeholder': 'LinkedIn or website url',
+                }),
+            'email': TextInput(
+                attrs={
+                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
+                }),
+            'phone': TextInput(
+                attrs={
+                    'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
+                }),
         }
 

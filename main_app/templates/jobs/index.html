@@ -10,6 +10,7 @@
       Add Job App
     </a>
   </div>
+  <hr class="my-6">
 
   <!-- status columns container -->
   <div class="mt-4 flex xl:flex-row flex-col w-full gap-5">
@@ -19,7 +20,7 @@
         <div class="w-4 h-4 rounded-full bg-slate-300 inline-block"></div>
         <span>Submitted / Pending ({{ num_p }})</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-auto capitalize">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-y-auto capitalize">
         <!-- for each - pending jobs goes here -->
         {% for job in jobs %}
           {% if job.progress == 'P'%}
@@ -48,7 +49,7 @@
         <div class="w-4 h-4 rounded-full bg-yellow-200 inline-block"></div>
         <span>Interviewing ({{ num_i }})</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-y-auto capitalize">
         <!-- for each - interviewing jobs goes here -->
         {% for job in jobs %}
           {% if job.progress == 'I'%}
@@ -78,7 +79,7 @@
         <div class="w-4 h-4 rounded-full bg-green-400 inline-block"></div>
         <span>Offers Extended ({{ num_o }})</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-y-auto capitalize">
         <!-- for each - offers jobs goes here -->
         {% for job in jobs %}
           {% if job.progress == 'O'%}
@@ -107,7 +108,7 @@
         <div class="w-4 h-4 rounded-full bg-red-400 inline-block"></div>
         <span>Rejected ({{ num_r }})</span>
       </div>
-      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-scroll capitalize">
+      <div class="bg-violet-100 p-3 mt-3 rounded-lg h-44 overflow-y-auto capitalize">
         <!-- for each - rejected jobs goes here -->
         {% for job in jobs %}
           {% if job.progress == 'R' %}
@@ -134,15 +135,15 @@
   </div>
 
   <div class="flex justify-center xl:block">
-    <h1 class="font-primary font-bold text-primary text-3xl mt-10">Bookmarked Jobs ({{ num_bookmarked }})</h1>
+    <h1 class="font-primary font-bold  text-2xl mt-10">Bookmarked Jobs ({{ num_bookmarked }})</h1>
   </div>
 
   <section class="card my-3 bg-violet-100 p-6 ">
-    <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-3 gap-y-1 h-40 overflow-scroll">
+    <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-3 gap-y-1 h-40 overflow-y-auto px-2">
       {% for job in jobs|dictsort:"company" %}
         {% if job.bookmarked %}
           <a href="{% url 'detail' job.id %}">
-            <div class="bg-primary font-primary text-lg text-white py-1 px-2 mb-1 md:min-h-20 2xl:min-h-10 rounded-md capitalize text-center flex justify-center items-center hover:shadow-inner hover:scale-[1.04] transition duration-300">      
+            <div class="bg-primary font-primary text-lg text-white py-1 px-2 mb-1 md:min-h-20 2xl:min-h-10 rounded-md capitalize text-center flex justify-center items-center hover:shadow-inner hover:scale-[1.03] transition duration-300">      
               {{ job.position }} @ {{ job.company }}
             </div>
           </a>
@@ -152,7 +153,7 @@
   </section>
 
   <div class="flex justify-center xl:block">
-    <h1 class="font-primary font-bold text-primary text-3xl mt-10">Search My Job Apps</h1>
+    <h1 class="font-primary font-bold  text-2xl mt-10">Search My Job Apps</h1>
   </div>
 
   <form action="{% url 'index' %}" method="GET">
@@ -161,18 +162,18 @@
         <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
       </svg>   
     </label>
-    <input id="search-bar" name="search_query" class="lowercase xl:w-1/2 w-full my-4 border-0 bg-violet-100 rounded-full px-10 font-secondary" placeholder="Enter a company name to search..." type="text">
+    <input id="search-bar" name="search_query" class="lowercase xl:w-1/2 w-full my-3 border-0 bg-violet-100 rounded-full px-10 font-secondary" placeholder="Enter a company name to search..." type="text">
     <button type="submit" class="button-text block xl:inline-block mx-auto shrink-0 bg-primary border-2 border-primary text-white text-sm xl:ml-3 px-6 py-2 rounded-full hover:text-primary hover:bg-white transition duration-300">Search</button>
   </form>
 
-  <div class="flex gap-4">
+  <div class="flex flex-col lg:flex-row gap-4">
     {% for result in results %}
     <a class="hover:scale-105 transition duration-300" href="{% url 'detail' result.id %}">
-      <div class="flex flex-col w-96">
+      <div class="flex flex-col lg:w-96">
         <div
-          class="card p3 my-3 bg-white min-h-36 text-center">
+          class="card my-3 bg-white min-h-36 text-center">
           <h3 class="bg-green-400 p-2 font-semibold capitalize">{{ result.position }} @ {{ result.company }}</h3>
-          <p class="capitalize mt-4"><span class="font-bold">Salary:</span> ${{ result.salary }}</p>
+          <p class="capitalize mt-4"><span class="font-bold">Salary:</span> $<span class="salary">{{ result.salary }}</span></p>
           <p class="capitalize"><span class="font-bold">Location:</span> {{ result.location }}</p>
         </div>
       </div>

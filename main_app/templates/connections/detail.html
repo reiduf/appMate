@@ -6,7 +6,7 @@
 <section class="xl:h-screen text-center md:text-left h-fit py-7 2xl:px-12 lg:px-5 px-8 xl:w-full">
     <div class="flex flex-col 2xl:flex-row gap-3 items-center justify-between">
         <h1 class="font-primary text-primary font-bold text-3xl capitalize text-pretty">
-            Job Application:
+            Connection: {{ connection.name }}
         </h1>
         <div class="flex text-center">
             <a href="{% url 'connections_delete' connection.id %}"
@@ -19,18 +19,19 @@
             </a>
         </div>
     </div>
+    <hr class="my-3">
 
-    <section>
-        <!-- job details top card -->
+    <section class="mt-6">
+        <!-- connection details top card -->
         <div class="card my-3 min-h-fit text-center shadow-md w-full">
-            <!-- job details green header -->
+            <!-- connection details blue header -->
             <div class="bg-cyan-400 flex items-center justify-start p-2">
                 <h4 class="font-semibold mx-auto my-auto capitalize">
                     {{connection.name}}
                 </h4>
             </div>
 
-            <div class="grid grid-cols-1 2xl:grid-cols-4 md:grid-cols-2 items-center gap-3 p-5 bg-white ">
+            <div class="grid grid-cols-1 2xl:grid-cols-3 items-center gap-3 p-5 bg-white ">
                 <!-- inner cards here -->
                 <div class="card w-full min-h-fit text-center shadow-md">
                     <div class="bg-gray-300 flex items-center justify-start p-2">
@@ -125,7 +126,7 @@
                     <span class="font-bold">Phone:</span> {{connection.phone}}
                 </p>
                 <p class="font-primary text-md font-normal">
-                    <span class="font-bold">URL:</span> {{connection.url}}
+                    <span class="font-bold">URL:</span> <a href="http://{{connection.url}}">{{connection.url}}</a>
                 </p>
             </div>
         </div>
@@ -133,11 +134,11 @@
         <!-- Connection card -->
         <div class="min-h-fit card text-center shadow-md bg-white">
             <div class="bg-cyan-300 flex items-center justify-start p-2">
-                <h4 class="font-semibold mx-auto">Associated Connection</h4>
+                <h4 class="font-semibold mx-auto">Associated Job Apps</h4>
             </div>
             <div class="flex flex-col justify-center items-center p-5 bg-white min-h-fit">
                 <p class="font-primary text-md font-normal">
-                    [test person here]
+                    [test job apps here]
                 </p>
             </div>
         </div>

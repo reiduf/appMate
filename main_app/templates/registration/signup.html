@@ -36,10 +36,10 @@
 			</svg>
 		</nav>
 
-		<main class="lg:mx-20 md:mt-20 mt-10 flex flex-col relative">
+		<main class="lg:mx-20 md:mt-20 mt-10 flex flex-col">
 			<div
 				class="bg-slate-50 p-10 inline-block xl:w-1/2 w-full rounded-lg shadow-lg">
-				<h1 class="font-primary text-primary text-3xl md:text-4xl mb-2">
+				<h1 class="font-primary text-3xl md:text-4xl mb-2">
 					Make job hunting a breeze
 				</h1>
 				<p class="md:max-w-2xl mb-5 leading-7 font-light">
@@ -65,22 +65,30 @@
 
 			<p class="red-text">{{ error_message }}</p>
 
-	
-		<form
-			id="signup-form"
-			class="hidden w-full p-5 bg-slate-100 my-5 xl:w-1/2 rounded-xl shadow-lg"
-			method="POST"
-			action="{% url 'signup' %}">
-			{% csrf_token %}
-			<h3 class="font-primary text-primary text-2xl font-bold">
-				Create an account
-			</h3>
-			{{ form.as_p }}
-			<input
-				type="submit"
-				class="bg-primary button-text mt-4 text-white py-1 px-5 rounded-full text-sm"
-				value="Sign Up" />
-		</form>
+      <div id="signup-form" class="bg-black-transparent hidden w-screen h-screen absolute top-0 left-0">
+        <div class="flex justify-center items-center h-full px-4 relative">
+          <form id="signup-form"
+            class="w-full p-8 bg-white my-5 xl:w-1/3 rounded-xl shadow-2xl flex flex-col justify-center"
+            method="POST"
+            action="{% url 'signup' %}">
+            {% csrf_token %}
+            <div class="flex justify-center relative">
+              <h3 class="font-primary text-3xl font-bold">
+                Create An Account
+              </h3>
+              <svg id="close-signup" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 absolute top-[-1rem] right-[-1rem] cursor-pointer">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>            
+            </div>
+            <hr class="my-3">
+            {{ form.as_p }}
+            <input
+              type="submit"
+              class="border-2 border-blue-500 bg-blue-800 text-white rounded-md py-1 w-full hover:bg-transparent hover:text-blue-500 font-semibold cursor-pointer mt-5"
+              value="Sign Up" />
+          </form>
+        </div>
+      </div>
 		
 
 			<div class="flex justify-center lg:justify-end mt-16">

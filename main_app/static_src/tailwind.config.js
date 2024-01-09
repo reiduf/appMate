@@ -49,6 +49,7 @@ module.exports = {
               },
               colors: {
                 'primary': '#1D93FF',
+                'black-transparent': 'rgba(0,0,0,0.5)'
               },
         },
     },

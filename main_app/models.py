@@ -15,8 +15,8 @@ PROGRESS = (
 
 class Connection(models.Model):
     name = models.CharField(max_length=50)
-    url = models.CharField(max_length=50, blank=True)
-    location = models.CharField(max_length=50, blank=True)
+    url = models.CharField('URL', max_length=50, blank=True)
+    location = models.CharField('Place/Event Met', max_length=50, blank=True)
     email = models.CharField(max_length=50, blank=True)
     phone = models.CharField(max_length=50, blank=True)
     company = models.CharField(max_length=50, blank=True)
@@ -87,7 +87,7 @@ class Status(models.Model):
 
 
 class Interaction(models.Model):
-    description = models.TextField(max_length=200)
+    description = models.TextField('Add Interaction',max_length=200)
     date = models.DateField('')
     connection = models.ForeignKey(Connection, on_delete=models.CASCADE)
 
