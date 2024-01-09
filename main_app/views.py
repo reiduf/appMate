@@ -173,7 +173,7 @@ class ConnectionCreate(LoginRequiredMixin, CreateView):
 
 class ConnectionUpdate(LoginRequiredMixin, UpdateView):
   model = Connection
-  fields = ['name', 'url', 'location', 'email', 'phone', 'company']
+  form_class = ConnectionForm
   
 
 class ConnectionDelete(LoginRequiredMixin, DeleteView):

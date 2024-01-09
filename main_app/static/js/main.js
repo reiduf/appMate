@@ -10,6 +10,6 @@ let salaryNum
 
 if (salary) {
   salaryNum = parseInt(salary).toLocaleString('en', {useGrouping:true});
+  document.querySelector('.salary').innerText = salaryNum;
 }
 
-document.querySelector('.salary').innerText = salaryNum;
