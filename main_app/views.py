@@ -35,6 +35,9 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 
+# JOB VIEWS
+
+
 @login_required
 def jobs_index(request):
   jobs = Job.objects.filter(user = request.user)
@@ -143,6 +146,20 @@ def delete_status(request, job_id, status_id):
   status.delete()
   return redirect('detail', job_id=job_id)
 
+
+@login_required
+def assoc_connection(request, job_id, connection_id):
+  Job.objects.get(id=job_id).connections.add(connection_id)
+  return redirect('detail', job_id=job_id)
+
+
+def unassoc_connection(request, job_id, connection_id):
+  Job.objects.get(id=job_id).connections.remove(connection_id)
+  return redirect('detail', job_id=job_id)
+
+
+
+# CONNECTION VIEWS
 
 @login_required
 def connections_index(request):

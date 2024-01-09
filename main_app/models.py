@@ -53,7 +53,10 @@ class Job(models.Model):
         return reverse('detail', kwargs={'job_id': self.id})
     
     def days_since_update(self):
-        last_update = self.status_set.all().last().date
+        day_diff = 0
+        last_update = self.date
+        if self.status_set.all().count():
+            last_update = self.status_set.all().last().date
         last_update_dt = datetime.combine(last_update, datetime.min.time())
         difference = datetime.now() - last_update_dt
         day_diff = difference.days
