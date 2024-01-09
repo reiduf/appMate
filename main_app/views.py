@@ -176,11 +176,13 @@ def connections_index(request):
 def connections_detail(request, connection_id):
   connection = Connection.objects.get(id = connection_id)
   interactions = Interaction.objects.filter(connection = connection_id)
+  assoc_jobs = Job.objects.filter(connections__id__exact=connection_id)
   interaction_form = InteractionForm()
   return render(request, 'connections/detail.html', {
     'connection' : connection,
     'interactions' : interactions,
-    'interaction_form' : interaction_form
+    'interaction_form' : interaction_form,
+    'assoc_jobs' : assoc_jobs,
   })
 
 
