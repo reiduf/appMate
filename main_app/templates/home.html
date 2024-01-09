@@ -14,7 +14,7 @@
       <div class="lg:w-1/2 h-[27.5rem] overflow-scroll px-4 py-3">
         
         {% for job in jobs %}
-        {% if job.days_since_update > 21 %}
+          {% if job.days_since_update > 21 %}
         <a href="{% url 'detail' job.id %}">
           <div
           class="card my-3 bg-green-100 min-h-fit text-center  hover:scale-[1.02] transition-all duration-300 ease-in-out">
