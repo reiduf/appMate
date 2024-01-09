@@ -17,7 +17,7 @@ urlpatterns = [
   path('jobs/<int:job_id>/add_status/', views.add_status, name='add_status'),
   path('jobs/<int:job_id>/delete_status/<int:status_id>/', views.delete_status, name='delete_status'),
   path('jobs/<int:job_id>/assoc_connection/', views.assoc_connection, name='assoc_connection'),
-  # path('jobs/<int:job_id>/unassoc_connection/<int:connection_id>/', views.unassoc_connection, name='unassoc_connection'),
+  path('jobs/<int:job_id>/unassoc_connection/<int:connection_id>/', views.unassoc_connection, name='unassoc_connection'),
   # CONNECTION URLS:
   path('connections/', views.connections_index, name='connections_index'),
   path('connections/<int:connection_id>', views.connections_detail, name='connections_detail'),
