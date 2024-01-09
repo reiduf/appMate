@@ -2,6 +2,7 @@ const menuEl = document.getElementById('menu');
 const hamburger = document.getElementById('hamburger');
 let salary = document.querySelector('.salary')?.innerText
 
+
 hamburger?.addEventListener('click', () => {
   menuEl.classList.toggle('hidden');
 })
