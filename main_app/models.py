@@ -15,11 +15,11 @@ PROGRESS = (
 
 class Connection(models.Model):
     name = models.CharField(max_length=50)
-    url = models.CharField(max_length=50)
-    location = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
-    phone = models.CharField(max_length=50)
-    company = models.CharField(max_length=50)
+    url = models.CharField(max_length=50, blank=True)
+    location = models.CharField(max_length=50, blank=True)
+    email = models.CharField(max_length=50, blank=True)
+    phone = models.CharField(max_length=50, blank=True)
+    company = models.CharField(max_length=50, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -32,13 +32,13 @@ class Connection(models.Model):
 class Job(models.Model):
     company = models.CharField(max_length=50)
     date = models.DateField('Applied Date')
-    salary = models.IntegerField()
+    salary = models.IntegerField(default=0)
     position = models.CharField(max_length=50)
-    notes = models.TextField(max_length=500)
-    location = models.CharField(max_length=50)
+    notes = models.TextField(max_length=500, blank=True)
+    location = models.CharField(max_length=50, blank=True)
     bookmarked = models.BooleanField('Add Bookmark', default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    connections = models.ManyToManyField(Connection)
+    connections = models.ManyToManyField(Connection, blank=True)
 
     progress = models.CharField(
         max_length=1,

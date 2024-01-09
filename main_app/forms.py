@@ -72,11 +72,11 @@ class JobForm(ModelForm):
             'progress': Select(
                 attrs={
                     'class': 'text-primary text-sm block text-center rounded-full min-w-96 w-full bg-gray-100 border-0',
-                 }),
+                }),
             'bookmarked': CheckboxInput(
                 attrs={
                     'class': 'block mx-auto border-2 border-primary',
-                 }),
+                }),
         }
 
 class InteractionForm(ModelForm):
