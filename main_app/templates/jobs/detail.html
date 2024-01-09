@@ -61,7 +61,9 @@
 						</div>
 						<div class="flex-col justify-center items-center p-5 bg-gray-100">
 							<p class="font-primary xl:text-xl text-4xl font-bold text-green-600">
-								$<span class="salary">{{ job.salary }}</span>
+								{% if job.salary %}
+                  $<span id="salary">{{ job.salary }}</span>
+                {% endif %}
 							</p>
 						</div>
 					</div>
