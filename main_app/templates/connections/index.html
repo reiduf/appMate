@@ -13,11 +13,11 @@
     </div>
 
     <!-- Connections container -->
-    <div class="grid xl:grid-cols-3 grid-cols-1 gap-3">
+    <div class="grid xl:grid-cols-3 grid-cols-1 gap-7 mt-3">
       <!-- Start forEach / Cards go here -->
-      {% for connection in connections %}
+      {% for connection in connections|dictsort:"name" %}
         <a href="{% url 'connections_detail' connection.id %}">
-         <div class="card my-3 bg-white 2xl:w-64 w-full max-h-fit hover:scale-105 transition duration-300 text-center">
+         <div class="card bg-white w-full max-h-fit hover:scale-105 transition duration-300 text-center">
             <h3 class="bg-cyan-300 p-2 capitalize font-semibold">{{ connection.name }}</h3>
             <div class="flex flex-col items-center px-4 justify-center h-32">
                 <p class="text-2xl font-bold">{{ connection.company}}</p>
