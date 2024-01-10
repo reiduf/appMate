@@ -28,7 +28,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('home')
+      return redirect('dash')
     else:
       error_message = 'Invalid sign up - try again'
 
@@ -43,11 +43,11 @@ def signup(request):
 @login_required
 def jobs_index(request):
   jobs = Job.objects.filter(user = request.user)
-  num_p = Job.objects.filter(progress = 'P').count()
-  num_i = Job.objects.filter(progress = 'I').count()
-  num_o = Job.objects.filter(progress = 'O').count()
-  num_r = Job.objects.filter(progress = 'R').count()
-  num_bookmarked = Job.objects.filter(bookmarked = True).count()
+  num_p = Job.objects.filter(user = request.user, progress = 'P').count()
+  num_i = Job.objects.filter(user = request.user, progress = 'I').count()
+  num_o = Job.objects.filter(user = request.user, progress = 'O').count()
+  num_r = Job.objects.filter(user = request.user, progress = 'R').count()
+  num_bookmarked = Job.objects.filter(user = request.user, bookmarked = True).count()
 
   results = None
   if request.GET.get('search_query'):
