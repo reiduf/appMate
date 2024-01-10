@@ -1,7 +1,7 @@
 # AppMate
 
 ## Overview
-AppMate is a site meant to help organize your job search process. Instead of having massive spreadsheets tracking hundreds of applications, AppMate creates an environement where all that information can be stored and organized in a way that makes the job search process just a bit more bareable. It is designed to track and update you both on your job applications and proffessional connections. 
+AppMate is a site meant to help organize your job search process. Instead of having massive spreadsheets tracking hundreds of applications, AppMate creates an environment where all information can be stored and organized in a way that makes the job search process just a bit more beareable. It is designed to track and update you both on your job applications and professional connections. 
 
 
 #### Technologies Used
@@ -11,9 +11,9 @@ AppMate is a site meant to help organize your job search process. Instead of hav
 >
 > Neon remote database
 >
-> Tailwind CSS framework and library
+> Tailwind CSS
 >
-> Heroki Cloud Services
+> Heroku Cloud Services
 
 ## Features
 > Create profiles for each job including salary and location
@@ -58,7 +58,7 @@ The connections detail page goes more in depth providing contact details and lis
 
 ## Getting Started
 <p>To view the site go here:<br>
-  https://appmate-31177a6bfe5a.herokuapp.com/connections/</p> 
+  https://appmate.dufrene.dev/</p> 
 
 
 ## What's next?
