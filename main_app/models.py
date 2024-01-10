@@ -35,7 +35,6 @@ class Connection(models.Model):
         day_diff = difference.days
         return day_diff
 
-
 class Job(models.Model):
     company = models.CharField(max_length=50)
     date = models.DateField('Applied Date')
@@ -103,6 +102,9 @@ class Interaction(models.Model):
 
     def __str__(self):
         return f'{self.description} ({self.id})'
+    
+    class Meta:
+        ordering = ['date']
     
 
 
