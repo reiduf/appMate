@@ -5,30 +5,20 @@ AppMate is a site meant to help organize your job search process. Instead of hav
 
 
 #### Technologies Used
-> Django web framework
->
-> Python Language
->
-> Neon remote database
->
-> Tailwind CSS
->
-> Heroku Cloud Services
+- Django web framework
+- Python Language
+- Neon remote database
+- Tailwind CSS
+- Heroku Cloud Services
 
 ## Features
-> Create profiles for each job including salary and location
->
-> Track interview status all the way up to offer/rejection
->
-> Create a connections list with all contacts met through job searching including but not limited to recruiters, hiring managers, etc.
->
-> Connect jobs to the right connection/ contact
->
-> Search feature to find applications
->
-> Has a "Going Cold" feature that tracks days since last interaction
->
-> Implements Django authentication to create users
+- Create profiles for each job including salary and location
+- Track interview status all the way up to offer/rejection
+- Create a connections list with all contacts met through job searching including but not limited to recruiters, hiring managers, etc.
+- Connect jobs to the right connection/ contact
+- Search feature to find applications
+- Has a "Going Cold" feature that tracks days since last interaction
+- Implements Django authentication to create users
 
 ## App Walkthrough
 Below are screenshots of AppMate, walking through some of the features. 
