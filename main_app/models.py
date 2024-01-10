@@ -28,7 +28,7 @@ class Connection(models.Model):
     def get_absolute_url(self):
         return reverse('connections_detail', kwargs={'connection_id': self.id})
     
-        def days_since_update(self):
+    def days_since_update(self):
         last_update = self.interaction_set.all().last().date
         last_update_dt = datetime.combine(last_update, datetime.min.time())
         difference = datetime.now() - last_update_dt
