@@ -7,10 +7,28 @@ AppMate is a site meant to help organize your job search process. Instead of hav
 #### Technologies Used
 > Django web framework
 >
+> Python Language
+>
 > Neon remote database
 >
 > Tailwind CSS framework and library
+>
+> Heroki Cloud Services
 
+## Features
+> Create profiles for each job including salary and location
+>
+> Track interview status all the way up to offer/rejection
+>
+> Create a connections list with all contacts met through job searching including but not limited to recruiters, hiring managers, etc.
+>
+> Connect jobs to the right connection/ contact
+>
+> Search feature to find applications
+>
+> Has a "Going Cold" feature that tracks days since last interaction
+>
+> Implements Django authentication to create users
 
 ## App Walkthrough
 Below are screenshots of AppMate, walking through some of the features. 
@@ -19,39 +37,35 @@ Below are screenshots of AppMate, walking through some of the features.
 ![Imgur](https://i.imgur.com/pF8x30a.png)
 
 
-![Imgur](https://i.imgur.com/Vpa2pg2.png)
-Once using Google's OAuth to login the user will be shown the homepage with the same feed but updated nav bar options. They can create a post, view their profile, find other user profiles, or logout. 
+ 
 
-![Imgur](https://i.imgur.com/UbmWE2t.png)
-![Imgur](https://i.imgur.com/Q5YBdHG.png)
-When SEE DETAILS on a post is clicked a page showing the user, description, like/unlike buttons, comments, a form to add new comments and a delete button that appears when the post being viewed was created by the viewing user. A user can also view the poster's profile by clicking on their name at the top. 
+When a posted application is clicked, a page showing the application status, salary, location, application date appears. There is also a section to post notes about the job, a section to update the status of the application/interview proccess and a todo list where you can create custom to-do's to keep you on top of and prepared for what the job/interview will entail. 
+![Imgur](https://i.imgur.com/z53Vk61.png)
 
-![Imgur](https://i.imgur.com/foy82k8.png)
-This shows a user's profile page which consists of their username and avatar at the top and a collection of pictures of their posts that once being clicked will bring you to the post's show page. 
+This is the appMate form page where you can create, edit or delete certain criteria for the job like position, company, salary, location, applied date and more. We have also added a feature where you can "bookmark" a certain position so that it stays highlighted in the home page to keep you reminded.
+![Imgur](https://i.imgur.com/j42JV1p.png)
+ 
+This is the user dash board! The main features here highlight applications that are "going cold" and need to be followed up with. The Dash also highlights the pending To-Do's.
+![Imgur](https://i.imgur.com/lv6Cxfx.png)
 
-![Imgur](https://i.imgur.com/Rairq9N.png)
-This is the page a user is shown to create a post. It is pretty bare right now because the only data we need the user to enter is the image description, which will then be used to generate an image. 
+This is the connections index page, listing the connections made and displaying their name, company, and where they were connected(in person, online, at an event). 
+![Imgur](https://i.imgur.com/888ds1C.png)
 
-![Imgur](https://i.imgur.com/IYNdpky.png)
-This is the search page where a user can search for another user and any matching results will be shown. When clicked, the result will take the user to the searched profile page. 
+The connections detail page goes more in depth providing contact details and listed interactions with dates and jobs they are connected to. You can add and delete notes and interactions.
+![Imgur](https://i.imgur.com/kLFyHUO.png)
+
 
 
 ## Getting Started
-To view the site go here. 
-
-Some notes:
-- Generating images usually takes a few seconds so be patient when creating a post. 
-- Images will be deleted after 2 hours (Open AI policy, trying to find work around).
-- Must have a Google account (Gmail) to login.
+<p>To view the site go here:<br>
+  https://appmate-31177a6bfe5a.herokuapp.com/connections/</p> 
 
 
 ## What's next?
-Ontop of the future plans touched on in the overview, some features I would love to add are:
-- Following or subscribing capabilities
-- Feed algorithm based off followers and interest
-- Post search based off hashtag type system
-- Capability to share posts to other social media sites
-- User image uploading functionality (obviously)
+some features we would love to add are:
+- Uploading screenshots of job details and other important info
+- Add a "Follow Up" feature
+- Have ready to do cover letter and email response templates
 - and more...
 
 
