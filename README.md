@@ -1,7 +1,7 @@
 # AppMate
 
 ## Overview
-AppMate is a site meant to help organize your job search process. Instead of having massive spreadsheets tracking hundreds of applications, AppMate creates an environment where all information can be stored and organized in a way that makes the job search process just a bit more beareable. It is designed to track and update you both on your job applications and professional connections. 
+AppMate is a site meant to help organize your job search process. Instead of having massive spreadsheets tracking hundreds of applications, AppMate creates an environment where all information can be stored and organized in a way that makes the job search process just a bit more bearable. It is designed to track and update you both on your job applications and professional connections. 
 
 
 #### Technologies Used
